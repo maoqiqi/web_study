@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        div {
+            color: red;
+        }
+
+        * {
+            color: orange;
+        }
+
+        p {
+            color: yellow;
+        }
+
+        .p1 {
+            color: green;
+        }
+
+        #p1 {
+            color: blue;
+        }
+
+        #p2 {
+            color: blue;
+        }
+
+        h3, h4 {
+            color: deeppink;
+        }
+
+        h4.h1 {
+            color: skyblue;
+        }
+
+        #d1 span {
+            color: black;
+        }
+
+        #d1 > div > span {
+            color: darkorchid;
+        }
+
+        span + label {
+            color: blanchedalmond;
+        }
+
+        label ~ span {
+            color: brown;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    继承样式 <br><br>
+    <span>继承样式+通配符样式</span>
+    <p>继承样式+通配符样式+元素选择器</p>
+    <p class="p1">继承样式+通配符样式+元素选择器+类选择器</p>
+    <p class="p1" id="p1">继承样式+通配符样式+元素选择器+类选择器+Id选择器</p>
+    <p class="p1" id="p2" style="color: purple;">继承样式+通配符样式+元素选择器+类选择器+Id选择器+内联样式</p>
+
+    <hr>
+
+    <h2>继承样式+通配符样式</h2>
+    <h3>继承样式+通配符样式+组合选择器</h3>
+    <h4 class="h1">继承样式+通配符样式+复合选择器</h4>
+
+    <hr>
+
+    <div id="d1">
+        <p>
+            <span>继承样式+通配符样式+元素选择器+后代元素选择器</span><br>
+            <span>继承样式+通配符样式+元素选择器+后代元素选择器</span><br>
+            <span>继承样式+通配符样式+元素选择器+后代元素选择器</span><br>
+            <span>继承样式+通配符样式+元素选择器+后代元素选择器</span><br>
+            <span>继承样式+通配符样式+元素选择器+后代元素选择器</span><br>
+
+            <span>继承样式+通配符样式</span>
+            <label>继承样式+通配符样式</label><br>
+
+            <span>继承样式+通配符样式+后一个兄弟元素选择器</span><br>
+            <span>继承样式+通配符样式+后一个兄弟元素选择器</span><br>
+            <span>继承样式+通配符样式+后一个兄弟元素选择器</span><br>
+        </p>
+
+        <div>
+            <span>继承样式+通配符样式+元素选择器+子元素选择器</span><br>
+            <span>继承样式+通配符样式+元素选择器+子元素选择器</span><br>
+            <span>继承样式+通配符样式+元素选择器+子元素选择器</span><br>
+            <span>继承样式+通配符样式+元素选择器+子元素选择器</span><br>
+            <span>继承样式+通配符样式+元素选择器+子元素选择器</span><br>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
