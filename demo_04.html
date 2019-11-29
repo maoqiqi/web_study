@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo_04</title>
+    <style type="text/css">
+        /*
+        长度单位
+        像素 px
+            像素是我们在网页中使用的最多的一个单位,一个像素就相当于我们屏幕中的一个小点
+            我们的屏幕实际上就是由这些像素点构成的,但是这些像素点,是不能直接看见
+
+            不同显示器一个像素的大小也不相同,显示效果越好越清晰,像素就越小,反之像素越大
+        百分比 %
+            也可以将单位设置为一个百分比的形式,这样浏览器将会根据其父元素的样式来计算该值
+
+            使用百分比的好处是,当父元素的属性值发生变化时,子元素也会按照比例发生改变
+
+            在我们创建一个自适应的页面时,经常使用百分比作为单位
+        em
+            em和百分比类似,它是相对于当前元素的字体大小来计算的, 1em = 1font-size
+
+            使用em时,当字体大小发生改变时,em也会随之改变,当设置字体相关的样式时,经常会使用em
+        */
+
+        div {
+            width: 100px;
+            height: 50px;
+        }
+
+        .box1 {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+
+        .box2 {
+            font-size: 20px;
+            width: 5em;
+            height: 50%;
+            background-color: yellow;
+        }
+
+        /*
+        颜色单位
+
+        在CSS可以直接使用颜色的单词来表示不同的颜色 红色：red 蓝色：blue 绿色：green
+
+        也可以使用RGB值来表示不同的颜色
+            所谓的RGB值指的是通过Red Green Blue三元色,通过这三种颜色的不同的浓度,来表示出不同的颜色
+            例子：rgb(红色的浓度,绿色的浓度,蓝色的浓度);
+            颜色的浓度需要一个0-255之间的值,255表示最大,0表示没有
+            浓度也可以采用一个百分数来设置,需要一个0% - 100%之间的数字
+            使用百分数最终也会转换为0-255之间的数
+            0%表示0
+            100%表示255
+
+        也可以使用十六进制的rgb值来表示颜色,原理和上边RGB原理一样
+            只不过使用十六进制数来代替,使用三组两位的十六进制数组来表示一个颜色
+            每组表示一个颜色,第一组表示红色的浓度,范围00-ff
+            第二组表示绿色的浓度,范围是00-ff
+            第三组表示蓝色的浓度,范围00-ff
+            语法：#红色绿色蓝色 00 - ff
+            00表示没有,相当于rgb中的0
+            ff表示最大,相当于rgb中255
+            红色： #ff0000
+
+            像这种两位两位重复的颜色,可以简写,比如：#ff0000 可以写成 #f00
+        */
+        .b1 {
+            background-color: rgb(161, 187, 215);
+        }
+
+        .b2 {
+            background-color: rgb(100%, 50%, 50%);
+        }
+
+        .b3 {
+            background-color: #0000ff;
+        }
+
+        .b4 {
+            background-color: #abc;
+        }
+
+        .b5 {
+            background-color: #084098
+        }
+    </style>
+</head>
+<body>
+
+<h1>Demo_04</h1>
+
+<div class="box1">
+    <div class="box2">我是DIV</div>
+</div>
+
+<div class="b1"></div>
+<div class="b2"></div>
+<div class="b3"></div>
+<div class="b4"></div>
+<div class="b5"></div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo_07</title>
+    <style type="text/css">
+        .p1 {
+            /**
+            text-transform可以用来设置文本的大小写,可选值：
+                none 默认值,该怎么显示就怎么显示,不做任何处理
+                capitalize 单词的首字母大写,通过空格来识别单词
+                uppercase 所有的字母都大写
+                lowercase 所有的字母都小写
+             */
+            text-transform: lowercase;
+            /**
+            text-decoration可以用来设置文本的修饰,可选值：
+                none：默认值,不添加任何修饰,正常显示
+                underline 为文本添加下划线
+                overline 为文本添加上划线
+                line-through 为文本添加删除线
+             超链接会默认添加下划线,也就是超链接的text-decoration的默认值是underline,
+             如果需要去除超链接的下划线则需要将该样式设置为none
+             */
+            text-decoration: line-through;
+            /*letter-spacing可以指定字符间距*/
+            letter-spacing: 10px;
+            /*word-spacing可以设置单词之间的距离,实际上就是设置词与词之间空格的大小*/
+            word-spacing: 20px;
+            /**
+            text-align用于设置文本的对齐方式,可选值：
+                left 默认值,文本靠左对齐
+                right , 文本靠右对齐
+                center , 文本居中对齐
+                justify , 两端对齐 通过调整文本之间的空格的大小,来达到一个两端对齐的目的
+             */
+            text-align: justify;
+            /**
+            text-indent用来设置首行缩进,这个值一般都会使用em作为单位
+            当给它指定一个正值时,会自动向右侧缩进指定的像素
+            如果为它指定一个负值,则会向左移动指定的像素
+            通过这种方式可以将一些不想显示的文字隐藏起来
+             */
+            text-indent: 2em;
+        }
+
+        .p2 {
+            text-transform: lowercase;
+            text-decoration: line-through;
+            letter-spacing: 10px;
+            word-spacing: 20px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<p class="p1">Use the full power of the modern JavaScript ecosystem – WebStorm’s got you covered! Enjoy the intelligent
+    code completion, on-the-fly error detection, powerful navigation and refactoring for JavaScript, TypeScript,
+    stylesheet languages, and all the most popular frameworks.</p>
+<p class="p2">充分利用现代JavaScript生态系统的力量——网络风暴让你得到了覆盖。 享受智能代码完成,即时错误检测,强大的导航和JavaScript重构,TypeScript,样式表语言,以及所有最流行的框架。</p>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo_06</title>
+    <style type="text/css">
+        /*
+        在CSS并没有为我们提供一个直接设置行间距的方式,我们只能通过设置行高来间接的设置行间距,行高越大行间距越大
+        使用line-height来设置行高,行高类似于我们上学单线本,单线本是一行一行,线与线之间的距离就是行高
+        网页中的文字实际上也是写在一个看不见的线中的,而文字会默认在行高中垂直居中显示
+        行间距 = 行高 - 字体大小
+
+        通过设置line-height可以间接的设置行高,可以接收的值:
+            1.直接就收一个大小
+            2.可以指定一个百分数,则会相对于字体去计算行高
+            3.可以直接传一个数值,则行高会设置字体大小相应的倍数
+        */
+        .p1 {
+            width: 500px;
+            background-color: lightskyblue;
+            /*font-size: 16px;*/
+            /* line-height: 2;*/ /*1.4*/
+            /*
+            在font中也可以指定行高,在字体大小后可以添加/行高来指定行高,该值是可选的,如果不指定则会使用默认值
+            */
+            font: 20px/3 serif;
+        }
+
+        /*对于单行文本来说,可以将行高设置为和父元素的高度一致,这样可以是单行文本在父元素中垂直居中*/
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightyellow;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<p class="p1">Use the full power of the modern JavaScript ecosystem – WebStorm’s got you covered! Enjoy the intelligent
+    code completion, on-the-fly error detection, powerful navigation and refactoring for JavaScript, TypeScript,
+    stylesheet languages, and all the most popular frameworks.</p>
+
+<div class="box">
+    <a href="#">我是一个超链接</a>
+</div>
+
+</body>
+</html>
