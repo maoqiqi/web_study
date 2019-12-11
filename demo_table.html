@@ -3,12 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Demo_table</title>
+    <style type="text/css">
+        table {
+            width: 40%;
+            margin: 0 auto;
+            border: 1px solid black;
+            /*table和td边框之间默认有一个距离,通过border-spacing属性可以设置这个距离*/
+            /*border-spacing: 0;*/
+            /*border-collapse可以用来设置表格的边框合并,如果设置了边框合并,则border-spacing自动失效*/
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+
+        tr:nth-child(even) {
+            background-color: #bfa;
+        }
+
+        tr:hover {
+            background-color: #ff0;
+        }
+
+        tr:first-child:hover {
+            background-color: transparent;
+        }
+    </style>
 </head>
 <body>
 
 <!--在HTML中，使用table标签来创建一个表格-->
 
-<table border="1" width="40%" align="center">
+<table>
+    <tr>
+        <!--可以使用th标签来表示表头中的内容,它的用法和td一样,不同的是它会有一些默认效果-->
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>住址</th>
+    </tr>
     <!--在table标签中使用tr来表示表格中的一行，有几行就有几个tr-->
     <tr>
         <!-- 在tr中需要使用td来创建一个单元格，有几个单元格就有几个td -->
