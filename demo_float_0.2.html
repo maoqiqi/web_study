@@ -15,6 +15,28 @@
             float: left;
         }
 
+        .box3 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+        .box4 {
+            width: 100px;
+            height: 100px;
+            background-color: lightpink;
+            /*子元素和父元素相邻的垂直外边距会发生重叠,子元素的外边距会传递给父元素
+            使用空的table标签可以隔离父子元素的外边距,阻止外边距的重叠*/
+            margin-top: 100px;
+        }
+
+        /**解决父子元素的外边距重叠*/
+        .box3:before {
+            content: "";
+            /*display:table可以将一个元素设置为表格显示*/
+            display: table;
+        }
+
         /**
         解决高度塌陷方案二：
         可以直接在高度塌陷的父元素的最后,添加一个空白的div
@@ -49,6 +71,17 @@
         .clear_fix {
             zoom: 1;
         }
+
+        /*经过修改后的clear_fix是一个多功能的,既可以解决高度塌陷,又可以确保父元素和子元素的垂直外边距不会重叠*/
+        /*.clear_fix:before, .clear_fix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .clear_fix {
+            zoom: 1;
+        }*/
     </style>
 </head>
 <body>
@@ -56,6 +89,10 @@
 <div class="box1 clear_fix">
     <div class="box2"></div>
     <div class="clear"></div>
+</div>
+
+<div class="box3 clear_fix">
+    <div class="box4"></div>
 </div>
 
 </body>
