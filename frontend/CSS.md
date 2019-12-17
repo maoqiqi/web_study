@@ -330,15 +330,129 @@
 有时候,你需要选择本身没有标签,但是仍然易于识别的网页部位,比如段落首行或鼠标滑过的连接。CSS为他们提供一些选择器:伪类和伪元素。
 
 * 给链接定义样式:有四个伪类可以让你根据访问者与该链接的交互方式,将链接设置成4种不同的状态。
-  * `a:link`:正常链接
-  * `a:visited`:访问过的链接(只能定义字体颜色)
-  * `a:hover`:鼠标滑过的链接
-  * `a:active`:正在点击的链接
-* 其他
+  * 链接伪类
+    * `a:link`:正常链接
+    * `a:visited`:访问过的链接(只能定义字体颜色)
+  * 动态伪类
+    * `a:hover`:鼠标滑过的链接
+    * `a:active`:正在点击的链接
+  * 例如:
+    ```
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style type="text/css">
+            a {
+                text-decoration: none;
+            }
+    
+            a:link, div:link {
+                color: deeppink;
+            }
+    
+            a:visited, div:visited {
+                color: blue;
+            }
+    
+            a:hover, div:hover {
+                color: pink;
+            }
+    
+            a:active, div:active {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+    <a href="#">点我点我点我</a>
+    <div>我是div啦</div>
+    </body>
+    </html>
+    ```
+* 表单伪类
   * `:focus`:获取焦点
+  * `:enabled`:
+  * `:disabled`:
+  * `:checked`:
+  * 例如:
+    ```
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    	<meta charset="UTF-8">
+    	<title>Title</title>
+    	<style type="text/css">
+    
+    		input:focus {
+    			background: pink;
+    		}
+    
+    		input:enabled {
+    			background: blue;
+    		}
+    
+    		input:disabled {
+    			background: deeppink;
+    		}
+    
+    		input:checked {
+    			font-size: 80px;
+    		}
+    	</style>
+    </head>
+    <body>
+    
+    <label>输入框<input type="text"/></label>
+    <label>不可点击<input type="text" disabled="disabled"/></label>
+    <label>复选框<input type="checkbox"/></label>
+    
+    </body>
+    </html>
+    ```
+* 伪元素选择器
   * `:before`:指定元素前
   * `:after`:指定元素后
-  * `::selection`:选中的元素
+  * `:selection`:选中的元素
+    ```
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style type="text/css">
+            #wrap {
+                font: 30px/100px serif;
+                background-color: lightgrey;
+            }
+    
+            #wrap::before {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                content: "";
+                background: pink;
+            }
+    
+            #wrap::after {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                content: "";
+                background: deeppink;
+            }
+    
+            #wrap::selection {
+                background-color: lightgreen;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="wrap">中国 ABC DEF GHI abc def ghi</div>
+    </body>
+    </html>
+    ```
 * 给段落定义样式
   * `:first-letter`:首字母
   * `:first-line`:首行
@@ -353,6 +467,7 @@
 
 * 属性选择器可以挑选带有特殊属性的标签。
 * 语法:
+* 例如:
   * [属性名]
   * [属性名="属性值"]
   * [属性名~="属性值"]
@@ -360,6 +475,30 @@
   * [属性名^="属性值"]
   * [属性名$="属性值"]
   * [属性名*="属性值"]
+    ```
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style type="text/css">
+            div[name*="abc"] {
+                border: 1px solid pink;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="wrap">
+        <div name="abc-def">abc-def</div>
+        <div name="abc">abc</div>
+        <div name="abc_def">abc_def</div>
+        <div name="abc_def">abc_def</div>
+        <div name="abc_">abc_</div>
+    </div>
+    </body>
+    </html>
+    ```
 
 ### 通用选择器
 
