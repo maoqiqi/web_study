@@ -7,6 +7,12 @@
 * [CSS选择器](#CSS选择器)
   * [ID选择器](#ID选择器)
   * [类选择器](#类选择器)
+  * [元素选择器](#元素选择器)
+  * [复合选择器](#复合选择器)
+  * [群组选择器](#群组选择器)
+  * [后代选择器](#后代选择器)
+  * [子元素选择器](#子元素选择器)
+  * [兄弟选择器](#兄弟选择器)
   * [通用选择器](#通用选择器)
 
 ## CSS概述
@@ -46,16 +52,10 @@
   这种方式将样式表放入到了页面的外部,可以在多个页面中引入,同时浏览器加载文件时可以使用缓存,这是我们开发中使用的最多的方式。
 
 
-## 名词解析
-
-* 选择器(selector),会告诉浏览器:网页上的哪些元素需要设置什么样的样式。
-  比如:p这个选择器就表示选择页面中的所有的p元素,在选择器之后所设置的样式会应用到所有的p元素上。
-* 元素选择器
-  * 元素选择器(标签选择器),可以根据标签的名字来从页面中选取指定的元素。
-  * 语法:`标签名 { }`
-  * 比如p则会选中页面中的所有p标签,h1会选中页面中的所有h1标签。
-
 ## CSS选择器
+
+选择器(selector),会告诉浏览器:网页上的哪些元素需要设置什么样的样式。
+比如:p这个选择器就表示选择页面中的所有的p元素,在选择器之后所设置的样式会应用到所有的p元素上。
 
 ### ID选择器
 
@@ -114,6 +114,39 @@
   </html>
   ```
 
+### 元素选择器
+
+* 元素选择器(标签选择器),可以根据标签的名字来从页面中选取指定的元素。
+* 语法:`标签名 { }`
+* 例如:
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <style type="text/css">
+          div {
+              border: 1px solid deeppink;
+          }
+  
+          span {
+              border: 1px solid blue;
+          }
+      </style>
+  </head>
+  <body>
+  
+  <div class="c1">我是c1</div>
+  <div class="c2">我是c2</div>
+  
+  <span class="c1">我是c1</span>
+  <span class="c2">我是c2</span>
+  
+  </body>
+  </html>
+  ```
+
 ### 复合选择器
 
 * 复合选择器,可以同时使用多个选择器,这样可以选择同时满足多个选择器的元素。
@@ -155,7 +188,7 @@
       <meta charset="UTF-8">
       <title>Title</title>
       <style type="text/css">
-          div, span {
+          .c1, .c2 {
               margin: 10px;
               border: 1px solid deeppink;
           }
@@ -168,6 +201,118 @@
   
   <span class="c1">我是c1</span>
   <span class="c2">我是c2</span>
+  
+  </body>
+  </html>
+  ```
+
+### 后代选择器
+
+标签之间的关系:
+* 祖先元素:直接或间接包含后代元素的元素。
+* 后代元素:直接或间接被祖先元素包含的元素。
+* 父元素:直接包含子元素的元素。
+* 子元素:直接被父元素包含的元素。
+* 兄弟元素:拥有相同父元素的元素。
+
+* 后代选择器可以根据标签的关系,为处在元素内部的代元素设置样式。
+* 语法:`祖先元素 后代元素 后代元素 { }`
+* 例如:
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <style type="text/css">
+          div span {
+              border: 1px solid deeppink;
+          }
+      </style>
+  </head>
+  <body>
+  
+  <div class="all">我是div标签 <span>我是span标签</span></div>
+  
+  <span>我是span标签</span>
+  
+  </body>
+  </html>
+  ```
+
+### 子元素选择器
+
+* 子元素选择器可以给另一个元素的子元素设置样式。
+* 语法:`父元素 > 子元素{}`
+* 例如:
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <style type="text/css">
+          div > span {
+              border: 1px solid deeppink;
+          }
+      </style>
+  </head>
+  <body>
+  
+  <div class="all">
+      我是div标签
+      <span>我是span标签</span>
+      <p><span>我是span标签</span></p>
+  </div>
+  
+  <span>我是span标签</span>
+  
+  </body>
+  </html>
+  ```
+
+其他子元素选择器
+• `:first-child`:选择第一个子标签
+• `:last-child`:选择最后一个子标签
+• `:nth-child`:选择指定位置的子元素
+• `:first-of-type`:选择指定类型的第一个子元素
+• `:last-of-type`:选择指定类型的最后一个子元素
+• `:nth-of-type`:选择指定类型指定位置的子元素
+
+### 兄弟选择器
+
+• 除了根据祖先父子关系,还可以根据兄弟 关系查找元素。
+• 语法:
+  * `兄弟元素 + 兄弟元素{}` 查找后边一个兄弟元素 
+  * `兄弟元素 ~ 兄弟元素{}` 查找后边所有的兄弟元素
+* 例如:
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <style type="text/css">
+          div + span {
+              border: 1px solid deeppink;
+          }
+  
+          a ~ span {
+              border: 1px solid blue;
+          }
+      </style>
+  </head>
+  <body>
+  
+  <div class="all">
+      <a href="#">我是a标签</a>
+      <span>我是span标签</span>
+      <span>我是span标签</span>
+      <span>我是span标签</span>
+      <p><span>我是span标签</span></p>
+  </div>
+  
+  <span>我是span标签</span>
   
   </body>
   </html>
@@ -204,30 +349,13 @@
   </body>
   </html>
   ```
-
-
-标签之间的关系
  
-• 祖先元素
-– 直接或间接包含后代元素的元素。
-• 后代元素
-– 直接或间接被祖先元素包含的元素。
-• 父元素
-– 直接包含子元素的元素。
-• 子元素
-– 直接被父元素包含的元素。
-• 兄弟元素
-– 拥有相同父元素的元素。
 
- 后代选择器
-• 后代选择器可以根据标签的关系,为处在 元素内部的代元素设置样式。
-• 语法:
-祖先元素 后代元素 后代元素 { }
-• 比如p strong 会选中页面中所有的p元素 内的strong元素。
+
+
 
  伪类和伪元素
 • 有时候,你需要选择本身没有标签,但是 仍然易于识别的网页部位,比如段落首行 或鼠标滑过的连接。CSS为他们提供一些选 择器:伪类和伪元素。
-
 
  给链接定义样式
 • 有四个伪类可以让你根据访问者与该链接的交 互方式,将链接设置成4种不同的状态。
@@ -254,32 +382,6 @@
 • 属性选择器可以挑选带有特殊属性的标签。 • 语法:
 [属性名] [属性名="属性值"] [属性名~="属性值"] [属性名|="属性值"] [属性名^="属性值"] [属性名$="属性值"] [属性名*="属性值"]
 
-
- 子元素选择器
-• 子元素选择器可以给另一个元素的子元素 设置样式。
-• 语法:
-父元素 > 子元素{}
-• 比如body > h1将选择body子标签中的所 有h1标签。
-
-
- 其他子元素选择器
-• :first-child
-– 选择第一个子标签
-• :last-child
-– 选择最后一个子标签
-• :nth-child
-– 选择指定位置的子元素
-• :first-of-type
-• :last-of-type
-• :nth-of-type
-– 选择指定类型的子元素
-
- 兄弟选择器
-• 除了根据祖先父子关系,还可以根据兄弟 关系查找元素。
-• 语法:
-– 查找后边一个兄弟元素
-• 兄弟元素 + 兄弟元素{}
-– 查找后边所有的兄弟元素 • 兄弟元素 ~ 兄弟元素{}
 
 
  否定伪类
