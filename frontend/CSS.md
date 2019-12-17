@@ -5,9 +5,9 @@
 
 * [CSS概述](#CSS概述)
 * [CSS选择器](#CSS选择器)
-  * [通用选择器](#通用选择器)
-  * [类选择器](#类选择器)
   * [ID选择器](#ID选择器)
+  * [类选择器](#类选择器)
+  * [通用选择器](#通用选择器)
 
 ## CSS概述
 
@@ -46,7 +46,132 @@
   这种方式将样式表放入到了页面的外部,可以在多个页面中引入,同时浏览器加载文件时可以使用缓存,这是我们开发中使用的最多的方式。
 
 
+## 名词解析
+
+* 选择器(selector),会告诉浏览器:网页上的哪些元素需要设置什么样的样式。
+  比如:p这个选择器就表示选择页面中的所有的p元素,在选择器之后所设置的样式会应用到所有的p元素上。
+* 元素选择器
+  * 元素选择器(标签选择器),可以根据标签的名字来从页面中选取指定的元素。
+  * 语法:`标签名 { }`
+  * 比如p则会选中页面中的所有p标签,h1会选中页面中的所有h1标签。
+
 ## CSS选择器
+
+### ID选择器
+
+• ID选择器,可以根据元素的id属性值选取元素。
+• 语法:`#id { }`
+* 例子:
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <style type="text/css">
+          #box1 {
+              border: 1px solid deeppink;
+          }
+      </style>
+  </head>
+  <body>
+  
+  <div id="box1">我是box1</div>
+  <div id="box2">我是box2</div>
+  
+  </body>
+  </html>
+  ```
+
+### 类选择器
+
+* 类选择器,可以根据元素的class属性值选取元素。
+* 语法:`.className { }`
+* 例如:
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <style type="text/css">
+          .all {
+              border: 10px double deeppink;
+          }
+      </style>
+  </head>
+  <body>
+  
+  <h1 class="all">我是h1标签</h1>
+  <div class="all">我是div标签</div>
+  <p class="all">我是p标签</p>
+  
+  <a href="#" class="all">我是a标签</a>
+  <span class="all">我是span标签</span>
+  <img class="all" src="img/logo.png" alt="logo">
+  
+  </body>
+  </html>
+  ```
+
+### 复合选择器
+
+* 复合选择器,可以同时使用多个选择器,这样可以选择同时满足多个选择器的元素。
+* 语法:`选择器1选择器2{}` 
+* 例如:
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <style type="text/css">
+          div.c1 {
+              border: 1px solid deeppink;
+          }
+      </style>
+  </head>
+  <body>
+  
+  <div class="c1">我是c1</div>
+  <div class="c2">我是c2</div>
+  
+  <span class="c1">我是c1</span>
+  <span class="c2">我是c2</span>
+  
+  </body>
+  </html>
+  ```
+
+### 群组选择器
+
+* 群组选择器,可以同时使用多个选择器,多个选择器将被同时应用指定的样式。
+* 语法:`选择器1,选择器2,选择器3 { }`
+* 例如:
+  ```
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <style type="text/css">
+          div, span {
+              margin: 10px;
+              border: 1px solid deeppink;
+          }
+      </style>
+  </head>
+  <body>
+  
+  <div class="c1">我是c1</div>
+  <div class="c2">我是c2</div>
+  
+  <span class="c1">我是c1</span>
+  <span class="c2">我是c2</span>
+  
+  </body>
+  </html>
+  ```
 
 ### 通用选择器
 
@@ -80,56 +205,8 @@
   </html>
   ```
 
-### 类选择器
 
-
-
-### ID选择器
-
-• ID选择器,可以根据元素的id属性值选取元素。
-• 语法:`#id { }`
-* 例子:
-  ```
-  
-  ```
-
-
-
-
-
-• 选择器(selector),会告诉浏览器:网页 上的哪些元素需要设置什么样的样式。
-• 比如:p这个选择器就表示选择页面中的所 有的p元素,在选择器之后所设置的样式会 应用到所有的p元素上。
-
-
- 元素选择器
-• 元素选择器(标签选择器),可以根据标 签的名字来从页面中选取指定的元素。
-• 语法:
-标签名 { }
-• 比如p则会选中页面中的所有p标签,h1会 选中页面中的所有h1标签。
-
- 类选择器
-• 类选择器,可以根据元素的class属性值选 取元素。
-• 语法:
-.className { }
-• 比如.hello会选中页面所有class属性为 hello的元素。
-
-
-
- 复合选择器
-• 复合选择器,可以同时使用多个选择器, 这样可以选择同时满足多个选择器的元素。
-• 语法:
-– 选择器1选择器2{}
-• 例如div.box1会选中页面中具有box1这个 class的div元素。
-
- 群组选择器
-• 群组选择器,可以同时使用多个选择器, 多个选择器将被同时应用指定的样式。
-• 语法:
-选择器1,选择器2,选择器3 { }
-• 比如p,.hello,#box会同时选中页面中p元素, class为hello的元素,id为box的元素。
-
-
-
- 标签之间的关系
+标签之间的关系
  
 • 祖先元素
 – 直接或间接包含后代元素的元素。
