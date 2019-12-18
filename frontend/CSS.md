@@ -677,6 +677,19 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
       * overline
       * line-through – none
 * 字母间距
+  * letter-spacing用来设置字符之间的间距。
 * 单词间距
+  * word-spacing用来设置单词之间的间距。
+  
+    > letter-spacing和word-spacing都可以直接指定一个长度或百分数作为值。正数代表的是增加距离,而负数代表减少距离。
 * 对齐文本
+  * text-align用于设置文本的对齐方式。
+    
+    可选值:
+      * left:左对齐
+      * right:右对齐
+      * justify:两边对齐
+      * center:居中对齐
 * 首行缩进
+  * text-indent用来设置首行缩进。
+  * 该样式需要指定一个长度,并且只对第一行生效。
