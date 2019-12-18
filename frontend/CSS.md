@@ -49,6 +49,7 @@
   * [display](#display)
   * [visibility](#visibility)
   * [overflow](#overflow)
+* [表格的样式](#表格的样式)
 
 
 ## CSS概述
@@ -937,4 +938,12 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
   * hidden:隐藏超出盒子的内容
 
 
+## 表格的样式
 
+* 之前学习的很多属性都可以用来设置表格的样式,比如color可以用来设置文本的颜色。padding可以设置内容和表格边框的距离。
+* text-align:设置文本的水平对齐。
+* vertical-align:设置文本的垂直对齐。可选值:top、baseline、middle、bottom。
+* border-spacing:边框间距
+* border-collapse:合并边框 
+  * collapse:合并边框
+  * separate:不合并边框
