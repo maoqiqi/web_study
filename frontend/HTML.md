@@ -414,3 +414,39 @@ W3C专门为了定义网页相关的标准而成立。W3C定义了网页中的HT
 
 
 ## 表单
+
+现实生活中的表单是用来提交信息的,比如:办理银行卡填写的申请表、找工作填写的简历、入学时填写的个人信息表。这些都是表单的一种。
+
+表单可以将用户填写的信息提交的服务器。
+
+* 使用<form>标签来创建一个表单,表单中必须要有两个属性action和method
+  * action表示提交表单到服务器中的地址
+  * method表示提交表单的方法
+* 表单项
+  * input是我们使用的最多的表单项,它可以根据不同的type属性呈现不同的状态。type属性可选值: 
+    * text:文本框,`<input type="text" name="name">`
+    * password:密码框,`<input type="password" name="pwd">`
+    * radio:单选按钮,`<input type="radio" name="gender">`
+    * checkbox:多选框,`<input type="checkbox" name="sports">`
+    * submit:提交按钮,`<input type="submit" value="提交">`
+    * reset:重置按钮,`<input type="reset" value="重置">`
+  * select、option
+    * select用于创建一个下拉列表。
+    * option表示下拉列表中的列表项。 
+    * optgroup用于为列表项分组。
+    * 例如:
+      ```
+      <select>
+          <option>北京</option>
+      </select>
+      ```
+  * textarea
+    * textarea用来创建一个文本域,实际效果和文本框类似,只是可以输入多行数据。可用属性:
+      * cols:文本域的列数 
+      * rows:文本域的行数
+  * fieldset、legend、label
+    * fieldset用来为表单项进行分组。
+    * legend用于指定每组的名字。
+    * label标签用来为表单项定义描述文字。
+  
+  > 一个表单中可以包含多个表单项  
