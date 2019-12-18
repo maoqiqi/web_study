@@ -820,7 +820,7 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
 * 边框(border)
 * 外边距(margin)
 
-![盒子模型](images/box_model.png)
+  ![盒子模型](images/box_model.png)
 
 #### 内容区
 
