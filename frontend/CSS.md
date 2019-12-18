@@ -716,6 +716,50 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
   * 该样式需要指定一个长度,并且只对第一行生效。
 
 
+## 背景
+
+* background-color
+  * background-color属性用来为元素设置背景颜色。
+  * 需要指定一个颜色值,当指定了一个颜色以后,整个元素的可见区域都会使用这个颜色作为背景色。
+  * 如果不设置背景颜色,元素默认背景颜色为透明,实际上会显示父元素的背景颜色。
+
+* background-image
+  * background-image可以为元素指定背景图片。
+  * 和background-color类似,这不过这里使用的是一个图片作为背景。
+  * 需要一个url地址作为参数,url地址需要指向一个外部图片的路径
+  * 例如:`background-image: url(1.jpg)`。
+
+* background-repeat
+  * background-repeat用于控制背景图片的重复方式。
+  * 如果只设置背景图片默认背景图片将会使用平铺的方式,可以通过该属性进行修改。可选值:
+    * repeat:默认值,图片左右上下平铺
+    * no-repeat:只显示图片一次,不会平铺
+    * repeat-x:沿x轴水平平铺一张图片
+    * repeat-y:沿y轴水平平铺一张图片
+
+* background-position
+  * background-position用来精确控制背景图片在元素中的位置。
+  * 可以通过三种方式来确定图片在水平方向和垂直方向的起点。
+    * 关键字:top right bottom left center 
+    * 百分比
+    * 数值
+
+* background-attachment
+  * background-attachment用来设置背景图片是否随页面滚动。可选值:
+    * scroll:随页面滚动 
+    * fixed:不随页面滚动
+
+* background
+  * background是背景的简写属性,通过这个属性可以一次性设置多个样式,而且样式的顺序没有要求。
+  * 例如:`background: green url(1.jpg) no-repeat center center fixed;`
+
+### CSS Sprite
+
+* CSS Sprites是一种网页图片应用处理方式。 
+* 通过这种方式我们可以将网页中的零星图片集中放到一张大图上。
+* 这样一来,一次请求便可以同时加载多张 图片,大大提高了图片的加载效率。
+
+
 ## 浮动
 
 ### 文档流
@@ -893,4 +937,4 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
   * hidden:隐藏超出盒子的内容
 
 
-## 背景
+
