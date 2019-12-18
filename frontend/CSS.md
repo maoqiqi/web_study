@@ -623,6 +623,7 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
     }
     ``` 
     上边这行代码指定了p标签中使用名为arial作为字体。
+    
     > 一般来说只有用户计算机中安装了我们指定的字体时,它才会显示,否则这行代码是没有意义的。
   * 通过font-family可以同时指定多个字体。
     例如:
@@ -632,6 +633,7 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
     }
     ```
     如上我实际上指定了三种字体,那么到底 使用的是哪个呢?浏览器会优先使用第一个,如果没有找到则使用第二个,以此类推。
+    
     > 这里面sans-serif并不是指的具体某一个字体。而是一类字体。
   
   字体分类:
@@ -640,14 +642,38 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
   * monospace(等宽字体)
   * cursive(草书字体)
   * fantasy(虚幻字体)
+  
   > 以上这些分类都是一些大的分类,并没有涉及具体的类型,如果将字体指定为这些格式,浏览器会自己选择指定类型的字体。
 * 斜体
+  * font-style用来指定文本的斜体。
+    * 指定斜体:font-style:italic
+    * 指定非斜体:font-style:normal
 * 粗体
+  * font-weight用来指定文本的粗体。
+    * 指定粗体:font-weight:bold
+    * 指定非粗体:font-weight:normal
 * 小型大写字母
+  * font-variant属性可以将字母类型设置为小型大写。在该样式中,字母看起来像是稍微缩小了尺寸的大写字母。
+    * font-variant:small-caps
 * 字体属性的简写
+  * font可以一次性同时设置多个字体的样式。
+  * 语法:`font:加粗 斜体 小型大写 大小/行高 字体`
+  > 这里前边几个加粗、斜体和小型大写的顺序无所谓,也可以不写,但是大小和字体必须写且必须写到后两个。
 * 行间距
+  * line-height用于设置行高,行高越大则行间距越大。
+  * 行间距 = line-height – font-size
 * 大写化
+  * text-transform样式用于将元素中的字母全都变成大小。
+    * 大写:text-transform:uppercase
+    * 小写:text-transform:lowercase
+    * 首字母大写:text-transform:capitalize 
+    * 正常:text-transform:none
 * 文本的修饰
+  * text-decoration属性,用来给文本添加各种修饰。通过它可以为文本的上方、下方或者中间添加线条。
+    可选值:
+      * underline
+      * overline
+      * line-through – none
 * 字母间距
 * 单词间距
 * 对齐文本
