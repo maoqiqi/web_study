@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水平居中</title>
+    <style type="text/css">
+        .wrap {
+            width: 600px;
+            height: 600px;
+            background: yellow;
+            opacity: 0.5;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            opacity: 0.5;
+            border: 1px solid deeppink;
+            box-sizing: border-box;
+            /*已知高度的元素垂直水平居中方案*/
+            /*box垂直水平居中*/
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -100px 0 0 -100px;
+            /*文字垂直水平居中*/
+            text-align: center;
+            font: 30px/200px sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="inner">inner</div>
+</div>
+
+</body>
+</html>

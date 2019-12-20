@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动</title>
+    <!--
+    清除浮动:让浮动的子元素库撑开父级的高度
+    1 直接给父级加高度(扩展性不好)
+    2 通过开启BFC (浮动盒子的特点,定位盒子的特点:高宽都由内容撑开)
+    3 br标签清浮动
+    4 空标签清浮动
+    5 伪元素
+    -->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            background-color: lightgrey;
+            opacity: 0.5;
+            border: 10px solid deeppink;
+            color: black;
+            /*触发bfc*/
+            /*overflow: hidden;*/
+            /*拥有布局*/
+            /*zoom:1;*/
+            /*position: absolute;*/
+            /*float: left;*/
+        }
+
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            opacity: 0.5;
+            border: 1px solid yellow;
+            float: left;
+        }
+
+        .clear_fix {
+            *zoom: 1;
+        }
+
+        /*ie 6 7 不支持伪元素*/
+        .clear_fix:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap clear_fix">
+    <div class="inner">box1</div>
+    <!--<br clear="all" />-->
+    <!--<div style="clear: both;"></div>-->
+</div>
+
+</body>
+</html>
