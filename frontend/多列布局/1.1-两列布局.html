@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>浮动-伪等高布局</title>
+    <title>两列布局</title>
     <!--
     左边固定,右边自适应
 
@@ -35,24 +35,20 @@
 
         .left {
             width: 300px;
+            float: left;
             background-color: pink;
             border: 1px solid deeppink;
         }
 
         .right {
-            width: 100%;
+            margin-left: 300px;
             background-color: lightblue;
             border: 1px solid deepskyblue;
-            margin-left: -300px;
-            position: relative;
-            top: 0;
-            right: -300px;
         }
 
         .left, .right {
             box-sizing: border-box;
             opacity: 0.5;
-            float: left;
             /*伪等高主要是这两行样式*/
             padding-bottom: 10000px;
             margin-bottom: -10000px;
@@ -64,7 +60,7 @@
 <div class="header">
     <h4>header</h4>
 </div>
-<div class="wrap clear_fix">
+<div class="wrap">
     <div class="left">
         left <br>
         left <br>
