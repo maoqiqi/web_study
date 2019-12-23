@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动</title>
+    <style type="text/css">
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 500px;
+        }
+    </style>
+    <script type="text/javascript" src="move.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            const box = document.getElementById("box");
+
+            document.getElementById("btn01").onclick = function () {
+                move(box, "left", 800, 10);
+            };
+            document.getElementById("btn02").onclick = function () {
+                move(box, "left", 0, 10);
+            };
+            document.getElementById("btn03").onclick = function () {
+                move(box, "top", 800, 10);
+            };
+            document.getElementById("btn04").onclick = function () {
+                move(box, "top", 0, 10);
+            };
+        };
+    </script>
+</head>
+<body>
+
+<button id="btn01">向右移动</button>
+<button id="btn02">向左移动</button>
+<button id="btn03">向下移动</button>
+<button id="btn04">向上移动</button>
+
+<div id="box"></div>
+
+<div style="width: 0; height: 1000px; border-left:1px black solid; position: absolute; left: 800px;top:0;"></div>
+
+</body>
+</html>
