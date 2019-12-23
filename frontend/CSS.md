@@ -634,10 +634,15 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
 
 ## 文本样式
 
-* 文字大小
-  * font-size用来指定文字的大小。
+* 文字大小(font-size)
+  * font-size属性指定字体的大小。该属性的值会被用于计算em长度单位。默认值:medium(chrome下为16px);可继承。
+  * 这一块的取值其实有很多种形式,暂时关注三种:
+    * px
+    * em:em值的大小是动态的。当定义font-size属性时,1em等于元素的父元素的字体大小
+    * %:参照父元素的字体大小
 * 字体
-  * 通过font-family可以指定标签中文字使用的字体。
+  * 通过font-family可以指定标签中文字使用的字体。字体名可以包含空格,但包含空格时应该用引号。
+    
     例如:
     ```
     p {
@@ -651,29 +656,58 @@ CSS中会默认使用权重较大的样式,权重又是如何计算的呢?
     例如:
     ```
     p {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: arial, verdana, sans-serif;
     }
     ```
-    如上我实际上指定了三种字体,那么到底 使用的是哪个呢?浏览器会优先使用第一个,如果没有找到则使用第二个,以此类推。
+    如上我实际上指定了三种字体,那么到底使用的是哪个呢?浏览器会优先使用第一个,如果没有找到则使用第二个,以此类推。
+    p标题将采用Arial字体显示。如果访问者的计算机未安装Arial,那么就使用Verdana字体。假如Verdana字体也没安装的话,那么将采用一个属于sans-serif族类的字体来显示这个h1标题。
     
     > 这里面sans-serif并不是指的具体某一个字体。而是一类字体。
   
-  字体分类:
-  * serif(衬线字体)
-  * sans-serif(非衬线字体)
-  * monospace(等宽字体)
-  * cursive(草书字体)
-  * fantasy(虚幻字体)
+  通用字体族名是一种备选机制,用于在指定的字体不可用时给出较好的字体。通用字体族名都是关键字,所以不可以加引号。
+  
+  字体族分类:
+  * serif(衬线字体):笔画结尾有特殊的装饰线或衬线
+    * 例如:Lucida Bright, Lucida Fax, Palatino, "Palatino Linotype", Palladio, "URW Palladio", serif
+  * sans-serif(非衬线字体):即笔画结尾是平滑的字体
+    * 例如:"Open Sans", "Fira Sans", "Lucida Sans", "Lucida Sans Unicode", "Trebuchet MS", "Liberation Sans", "Nimbus Sans L", sans-serif。
+  * monospace(等宽字体):即字体中每个字宽度相同
+    * 例如:"Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace。
+  * cursive(草书字体):这种字体有的有连笔,有的还有特殊的斜体效果。因为一般这种字体都有一点连笔效果,所以会给人一种手写的感觉。
+    * 例如:"Brush Script MT", "Brush Script Std", "Lucida Calligraphy", "Lucida Handwriting", "Apple Chancery", cursive。
+  * fantasy(虚幻字体):Fantasy字体主要是那些具有特殊艺术效果的字体
+    * 例如:Papyrus, Herculanum, Party LET, Curlz MT, Harrington, fantasy。
   
     > 以上这些分类都是一些大的分类,并没有涉及具体的类型,如果将字体指定为这些格式,浏览器会自己选择指定类型的字体。
 * 斜体
   * font-style用来指定文本的斜体。
-    * 指定斜体:font-style:italic
-    * 指定非斜体:font-style:normal
+    * 指定斜体:font-style:italic 或 oblique
+      * italic:选择斜体,如果当前字体没有可用的斜体版本,会选用倾斜体(oblique)替代。
+      * oblique:选择倾斜体,如果当前字体没有可用的倾斜体版本,会选用斜体(italic)替代。
+      * Italic样式一般是指书写体,相比无样式的字体,通常会占用较少的高度,而oblique字形一般只是常规字形的倾斜版本。
+    * 指定非斜体:font-style:normal(默认值,可继承) 
 * 粗体
-  * font-weight用来指定文本的粗体。
-    * 指定粗体:font-weight:bold
-    * 指定非粗体:font-weight:normal
+  * font-weight用来指定文本的粗体。一些字体只提供normal和bold两种值。
+    * bold:指定粗体
+    * normal:指定非粗体(默认值,可继承)
+    * lighter:比从父元素继承来的值更细
+    * bolder:比从父元素继承来的值更粗
+      当指定的是相对粗细值lighter或bolder时,将使用如下图表来决定元素渲染时的绝对粗细值:
+      
+      |继承值(Inherited value) |   bolder  |  lighter |
+      |:----------------------|:----------|----------|
+      |       100             |     400   |   100    |
+      |       200             |     400   |   100    |
+      |       300             |     400   |   100    |
+      |       400             |     700   |   100    |
+      |       500             |     700   |   100    |
+      |       600             |     900   |   400    |
+      |       700             |     900   |   400    |
+      |       800             |     900   |   700    |
+      |       900             |     900   |   700    |  
+      
+    * 100(Thin或者Hairline), 200, 300, 400, 500, 600, 700, 800, 900
+      > 如果一个字体只有normal和bold两种粗细值选择,指定粗细值为100-500时,实际渲染时将使用normal,指定粗细值为600-900时,实际渲染时将使用bold。
 * 小型大写字母
   * font-variant属性可以将字母类型设置为小型大写。在该样式中,字母看起来像是稍微缩小了尺寸的大写字母。
     * font-variant:small-caps
