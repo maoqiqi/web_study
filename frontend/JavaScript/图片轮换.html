@@ -75,15 +75,19 @@
             let navDiv = banner.querySelector("#banner div");
 
             const imageMove = function () {
-                console.log("move1:" + this + ",navDiv:" + navDiv + ",index:" + index);
                 clearInterval(timer);
                 navDiv.children[index].style.backgroundColor = "";
-                // 获取点击超链接的索引,并将其设置为index
-                index = this.position;
+                if (this.position) {
+                    // 获取点击超链接的索引,并将其设置为index
+                    index = this.position;
+                } else {
+                    ++index;
+                    if (index >= imgArr.length) index = 0;
+                }
+                console.log("index = ", index);
                 navDiv.children[index].style.backgroundColor = "black";
                 // 使用move函数来切换图片
                 move(imagesUl, "left", -banner.offsetWidth * index, 100, function () {
-                    console.log("move2:" + this);
                     timer = setInterval(imageMove, 2000);
                 });
             };
@@ -117,7 +121,13 @@
 <body>
 
 <div id="banner">
-    <ul class="images"></ul>
+    <ul class="images">
+        <!--        <li><a href="http://www.baidu.com"><img src="images/1.jpg" alt="图片轮换"></a></li>-->
+        <!--        <li><a href="http://www.baidu.com"><img src="images/2.jpg" alt="图片轮换"></a></li>-->
+        <!--        <li><a href="http://www.baidu.com"><img src="images/3.jpg" alt="图片轮换"></a></li>-->
+        <!--        <li><a href="http://www.baidu.com"><img src="images/4.jpg" alt="图片轮换"></a></li>-->
+        <!--        <li><a href="http://www.baidu.com"><img src="images/5.jpg" alt="图片轮换"></a></li>-->
+    </ul>
     <div class="nav"></div>
 </div>
 
