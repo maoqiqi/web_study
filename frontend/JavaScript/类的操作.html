@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类的操作</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .b1 {
+            background-color: yellow;
+        }
+
+        .b2 {
+            border: 1px solid black;
+        }
+
+        button {
+            padding: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            const box = document.getElementById("box");
+            document.getElementById("btn01").onclick = function () {
+                // box.className += " b2";
+                // addClass(box, "b2");
+                // alert(hasClass(box, "b2"));
+
+                // removeClass(box, "b2");
+
+                toggleClass(box, "b2");
+            };
+        };
+
+        // 向一个元素中添加指定的class属性值
+        function addClass(obj, cn) {
+            if (!hasClass(obj, cn)) {
+                obj.className += " " + cn;
+            }
+        }
+
+        // 判断一个元素中是否含有指定的class属性值
+        function hasClass(obj, cn) {
+            const reg = new RegExp("\\b" + cn + "\\b");
+            return reg.test(obj.className);
+        }
+
+        // 删除一个元素中的指定的class属性
+        function removeClass(obj, cn) {
+            const reg = new RegExp("\\b" + cn + "\\b");
+            obj.className = obj.className.replace(reg, "").trim();
+        }
+
+        // 删除或者添加指定的class属性
+        function toggleClass(obj, cn) {
+            if (hasClass(obj, cn)) {
+                removeClass(obj, cn);
+            } else {
+                addClass(obj, cn);
+            }
+        }
+    </script>
+</head>
+<body>
+
+<button id="btn01">修改样式</button>
+
+<div id="box" class="b1 b2"></div>
+
+</body>
+</html>
