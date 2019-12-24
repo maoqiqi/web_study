@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style type="text/css">
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            drag(document.getElementById("box"))
+        };
+
+        function drag(obj) {
+            obj.onmousedown = function (event) {
+                // 设置box捕获所有鼠标按下的事件
+                // setCapture(),只有IE支持,在火狐中调用时不会报错,chrome调用,会报错
+                obj.setCapture && obj.setCapture();
+
+                event = event || window.event;
+                let ol = event.clientX - obj.offsetLeft;
+                let ot = event.clientY - obj.offsetTop;
+
+                document.onmousemove = function (event) {
+                    event = event || window.event;
+
+                    let left = event.clientX - ol;
+                    let top = event.clientY - ot;
+
+                    if (left <= 0) left = 0;
+                    if (left >= 800) left = 800;
+
+                    if (top <= 0) top = 0;
+                    if (top >= 600) top = 600;
+
+                    obj.style.left = left + "px";
+                    obj.style.top = top + "px";
+                };
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                    // 当鼠标松开时,取消对事件的捕获
+                    obj.releaseCapture && obj.releaseCapture();
+                };
+
+                // 当我们拖拽一个网页中的内容时,浏览器会默认去搜索引擎中搜索内容
+                // 此时会导致拖拽功能的异常,这个是浏览器提供的默认行为
+                // 如果不希望发生这个行为,则可以通过return false来取消默认行为
+                // 但是这招对IE8不起作用
+                return false;
+            };
+        }
+    </script>
+</head>
+<body>
+
+我是一段文字
+
+<div id="box"></div>
+
+</body>
+</html>
