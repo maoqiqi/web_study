@@ -56,6 +56,16 @@
         #banner div a:hover {
             background-color: black;
         }
+
+        #box2 {
+            width: 520px;
+            margin: 0 auto;
+        }
+
+        #box2 button {
+            width: 48px;
+            height: 24px;
+        }
     </style>
     <script type="text/javascript" src="move.js"></script>
     <script type="text/javascript">
@@ -78,7 +88,7 @@
                 // 在开启定时器之前,需要将当前元素上的其他定时器关闭
                 clearInterval(timer);
                 navDiv.children[index].style.backgroundColor = "";
-                if (this.position) {
+                if (this.position !== undefined) {
                     // 获取点击超链接的索引,并将其设置为index
                     index = this.position;
                 } else {
@@ -91,9 +101,8 @@
                 console.log("index = ", index);
                 navDiv.children[index].style.backgroundColor = "black";
                 // 使用move函数来切换图片
-                move(imagesUl, "left", -banner.offsetWidth * index, 100, function () {
-                    console.log("seconds:" + new Date().getSeconds());
-                    timer = setInterval(imageMove, 2000);
+                move(imagesUl, "left", -banner.offsetWidth * index, 10, function () {
+                    timer = timer && setInterval(imageMove, 1000);
                 });
             };
 
@@ -119,14 +128,14 @@
             // 导航居中显示
             // navDiv.style.left = (banner.offsetWidth - navDiv.offsetWidth) / 2 + "px";
 
-            // timer = setInterval(imageMove, 2000);
+            // timer = setInterval(imageMove, 1000);
             document.getElementById("btn01").onclick = function () {
                 // 开启一个定时器,来自动切换图片
                 // 延时调用:延时调用一个函数不马上执行,而是隔一段时间以后在执行,而且只会执行一次
                 // 延时调用和定时调用的区别,定时调用会执行多次,而延时调用只会执行一次
                 // 延时调用和定时调用实际上是可以互相代替的,在开发中可以根据自己需要去选择
                 // 使用clearTimeout()来关闭一个延时调用
-                timer = setInterval(imageMove, 2000);
+                timer = timer || setInterval(imageMove, 1000);
             };
             document.getElementById("btn02").onclick = function () {
                 // 点击按钮以后,停止图片的自动切换,关闭定时器
@@ -134,6 +143,7 @@
                 // 如果参数是一个有效的定时器的标识,则停止对应的定时器
                 // 如果参数不是一个有效的标识,则什么也不做
                 clearInterval(timer);
+                timer = 0;
             };
         }
     </script>
@@ -151,7 +161,7 @@
     <div class="nav"></div>
 </div>
 
-<div style="width:500px;margin: 0 auto;">
+<div id="box2">
     <button id="btn01">开始</button>
     <button id="btn02">停止</button>
 </div>
