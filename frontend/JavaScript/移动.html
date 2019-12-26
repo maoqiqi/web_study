@@ -20,6 +20,11 @@
     </style>
     <script type="text/javascript" src="move.js"></script>
     <script type="text/javascript">
+        // 定义一个变量,来表示移动的速度
+        let speed = 10;
+
+        let dir;
+
         window.onload = function () {
             const box = document.getElementById("box");
 
@@ -35,7 +40,67 @@
             document.getElementById("btn04").onclick = function () {
                 move(box, "top", 0, 10);
             };
+
+            /*
+            键盘事件:
+            onkeydown:按键被按下
+              对于onkeydown来说如果一直按着某个按键不松手,则事件会一直触发
+              当onkeydown连续触发时,第一次和第二次之间会间隔稍微长一点,其他的会非常的快
+            onkeyup:按键被松开
+
+            键盘事件一般都会绑定给一些可以获取到焦点的对象或者是document
+            */
+
+            keyMove();
+
+            document.onkeydown = function (event) {
+                event = event || window.event;
+
+                // 可以通过keyCode来获取按键的编码,通过它可以判断哪个按键被按下
+                // 除了keyCode,事件对象中还提供了几个属性,altKey,ctrlKey,shiftKey
+                // 这个三个用来判断alt ctrl 和shift是否被按下,如果按下则返回true,否则返回false
+                // 判断y和ctrl是否同时被按下
+                if (event.keyCode === 89 && event.ctrlKey) {
+                    console.log("ctrl和y都被按下了");
+                }
+
+                // 当用户按了ctrl以后,速度加快
+                if (event.ctrlKey) {
+                    speed = 50;
+                } else {
+                    speed = 10;
+                }
+
+                dir = event.keyCode;
+            };
+
+            document.onkeyup = function () {
+                dir = 0;
+            };
         };
+
+        function keyMove() {
+            setInterval(function () {
+                switch (dir) {
+                    case 37:
+                        // 向左,left值减小
+                        box.style.left = box.offsetLeft - speed + "px";
+                        break;
+                    case 39:
+                        // 向右
+                        box.style.left = box.offsetLeft + speed + "px";
+                        break;
+                    case 38:
+                        // 向上
+                        box.style.top = box.offsetTop - speed + "px";
+                        break;
+                    case 40:
+                        // 向下
+                        box.style.top = box.offsetTop + speed + "px";
+                        break;
+                }
+            }, 30);
+        }
     </script>
 </head>
 <body>

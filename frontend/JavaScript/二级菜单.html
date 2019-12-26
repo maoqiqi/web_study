@@ -9,11 +9,24 @@
             padding: 0;
         }
 
+        div {
+            width: 300px;
+            margin: 10px auto;
+            font: 16px/50px "Courier New", sans-serif;
+        }
+
+        div input[type="checkbox"] {
+            /*放大checkbox*/
+            zoom: 150%;
+        }
+
         #menu {
             width: 300px;
+            /*height: 700px;*/
             margin: 0 auto;
             list-style: none;
             font-family: "Courier New", sans-serif;
+            /*overflow: auto;*/
         }
 
         #menu > li > a {
@@ -21,8 +34,8 @@
             height: 35px;
             background: black url("images/expanded.gif") no-repeat 16px center;
             opacity: 0.5;
-            filter: alpha(50);
-            border-bottom: 1px solid lightgrey;
+            filter: alpha(opacity=50);
+            /*border-bottom: 1px solid lightgrey;*/
             padding: 0 32px;
             font-size: 18px;
             font-weight: bold;
@@ -37,11 +50,13 @@
 
         #menu > li.collapsed > ul {
             height: 0;
-            overflow: hidden;
         }
 
         #menu > li > ul {
             list-style: none;
+            padding-left: 4px;
+            background-color: red;
+            overflow: hidden;
         }
 
         #menu > li > ul a {
@@ -51,63 +66,170 @@
             border-bottom: 1px solid gray;
             font-size: 14px;
             line-height: 35px;
-            color: green;
+            color: gray;
             text-decoration: none;
         }
 
         #menu > li > ul a:hover {
+            /*background: green url("images/arrow.gif") no-repeat right center;*/
+            color: green;
+        }
+
+        #menu > li > ul > li.selected a {
             background: green url("images/arrow.gif") no-repeat right center;
             color: white;
         }
     </style>
+    <script type="text/javascript" src="move.js"></script>
+    <script type="text/javascript">
+        // 向一个元素中添加指定的class属性值
+        function addClass(obj, cn) {
+            if (!hasClass(obj, cn)) {
+                obj.className = (obj.className + " " + cn).trim();
+            }
+        }
+
+        // 判断一个元素中是否含有指定的class属性值
+        function hasClass(obj, cn) {
+            const reg = new RegExp("\\b" + cn + "\\b");
+            return reg.test(obj.className);
+        }
+
+        // 删除一个元素中的指定的class属性
+        function removeClass(obj, cn) {
+            const reg = new RegExp("\\b" + cn + "\\b");
+            obj.className = obj.className.replace(reg, "").trim();
+        }
+
+        // 删除或者添加指定的class属性
+        function toggleClass(obj, cn) {
+            if (hasClass(obj, cn)) {
+                removeClass(obj, cn);
+            } else {
+                addClass(obj, cn);
+            }
+        }
+
+        // 展开新的选项时是否需要关闭其它展开选项
+        let closeOther;
+
+        window.onload = function () {
+            const closeCheckBox = document.getElementById("close");
+            closeCheckBox.onchange = function () {
+                closeOther = this.checked;
+            };
+            closeOther = closeCheckBox.checked;
+            expandAndCollapse(closeOther);
+        };
+
+        function expandAndCollapse() {
+            const allA = document.querySelectorAll("#menu > li > a");
+            // 选中父选项
+            let index = 0;
+            // 选中子选项的父索引
+            let firstIndex = 0;
+            // 选中子选项的子索引
+            let secondIndex = 0;
+            // 类选择器名称
+            const collapsedClassName = "collapsed";
+            const selectedClassName = "selected";
+
+            for (let i = 0; i < allA.length; i++) {
+                allA[i].position = i;
+                allA[i].onclick = function () {
+                    toggleMenu(this.parentNode, collapsedClassName);
+                    // 收缩
+                    if (closeOther && this !== allA[index] && !hasClass(allA[index].parentNode, collapsedClassName)) {
+                        toggleMenu(allA[index].parentNode, collapsedClassName);
+                    }
+                    index = this.position;
+                };
+                const allChildA = allA[i].nextElementSibling.querySelectorAll("a");
+                for (let j = 0; j < allChildA.length; j++) {
+                    allChildA[j].firstIndex = i;
+                    allChildA[j].secondIndex = j;
+                    allChildA[j].onclick = function () {
+                        const childA = allA[firstIndex].nextElementSibling.querySelectorAll("a")[secondIndex];
+                        console.log(childA.innerHTML);
+                        if (this !== childA) {
+                            addClass(this.parentNode, selectedClassName);
+                            removeClass(childA.parentNode, selectedClassName);
+                        }
+                        firstIndex = this.firstIndex;
+                        secondIndex = this.secondIndex;
+                    };
+                }
+            }
+
+            function toggleMenu(obj, cn) {
+                const childUl = obj.querySelector("ul");
+                const begin = childUl.offsetHeight;
+                toggleClass(obj, cn);
+                const end = childUl.offsetHeight;
+                // console.log("begin = " + begin + ", end = " + end);
+
+                // 动画效果就是将高度从begin向end过渡
+                // 将元素的高度重置为begin
+                childUl.style.height = begin + "px";
+                move(childUl, "height", end, 50, function () {
+                    childUl.style.height = "";
+                });
+            }
+        }
+    </script>
 </head>
 <body>
 
+<div>
+    <input id="close" type="checkbox" name="close" value="close">
+    <label for="close">关闭其他选项(先选择,再操作)</label>
+</div>
+
 <ul id="menu">
     <li>
-        <a href="">在线工具一:</a>
+        <a href="javascript:void(0);">在线工具一</a>
         <ul>
-            <li><a href="">1.1 在线工具</a></li>
-            <li><a href="">1.2 在线工具</a></li>
-            <li><a href="">1.3 在线工具</a></li>
-            <li><a href="">1.4 在线工具</a></li>
-            <li><a href="">1.5 在线工具</a></li>
-            <li><a href="">1.6 在线工具</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="">在线工具二:</a>
-        <ul>
-            <li><a href="">2.1 在线工具</a></li>
-            <li><a href="">2.2 在线工具</a></li>
-            <li><a href="">2.3 在线工具</a></li>
+            <li class="selected"><a href="javascript:void(0);">1.1 在线工具</a></li>
+            <li><a href="javascript:void(0);">1.2 在线工具</a></li>
+            <li><a href="javascript:void(0);">1.3 在线工具</a></li>
+            <li><a href="javascript:void(0);">1.4 在线工具</a></li>
+            <li><a href="javascript:void(0);">1.5 在线工具</a></li>
+            <li><a href="javascript:void(0);">1.6 在线工具</a></li>
         </ul>
     </li>
     <li class="collapsed">
-        <a href="">在线工具三:</a>
+        <a href="javascript:void(0);">在线工具二</a>
         <ul>
-            <li><a href="">3.1 在线工具</a></li>
-            <li><a href="">3.2 在线工具</a></li>
-            <li><a href="">3.3 在线工具</a></li>
-            <li><a href="">3.4 在线工具</a></li>
+            <li><a href="javascript:void(0);">2.1 在线工具</a></li>
+            <li><a href="javascript:void(0);">2.2 在线工具</a></li>
+            <li><a href="javascript:void(0);">2.3 在线工具</a></li>
         </ul>
     </li>
     <li class="collapsed">
-        <a href="">在线工具四:</a>
+        <a href="javascript:void(0);">在线工具三</a>
         <ul>
-            <li><a href="">4.1 在线工具</a></li>
-            <li><a href="">4.2 在线工具</a></li>
-            <li><a href="">4.3 在线工具</a></li>
-            <li><a href="">4.4 在线工具</a></li>
-            <li><a href="">4.5 在线工具</a></li>
+            <li><a href="javascript:void(0);">3.1 在线工具</a></li>
+            <li><a href="javascript:void(0);">3.2 在线工具</a></li>
+            <li><a href="javascript:void(0);">3.3 在线工具</a></li>
+            <li><a href="javascript:void(0);">3.4 在线工具</a></li>
         </ul>
     </li>
-    <li>
-        <a href="">在线工具五:</a>
+    <li class="collapsed">
+        <a href="javascript:void(0);">在线工具四</a>
         <ul>
-            <li><a href="">5.1 在线工具</a></li>
-            <li><a href="">5.2 在线工具</a></li>
-            <li><a href="">5.3 在线工具</a></li>
+            <li><a href="javascript:void(0);">4.1 在线工具</a></li>
+            <li><a href="javascript:void(0);">4.2 在线工具</a></li>
+            <li><a href="javascript:void(0);">4.3 在线工具</a></li>
+            <li><a href="javascript:void(0);">4.4 在线工具</a></li>
+            <li><a href="javascript:void(0);">4.5 在线工具</a></li>
+        </ul>
+    </li>
+    <li class="collapsed">
+        <a href="javascript:void(0);">在线工具五</a>
+        <ul>
+            <li><a href="javascript:void(0);">5.1 在线工具</a></li>
+            <li><a href="javascript:void(0);">5.2 在线工具</a></li>
+            <li><a href="javascript:void(0);">5.3 在线工具</a></li>
         </ul>
     </li>
 </ul>
