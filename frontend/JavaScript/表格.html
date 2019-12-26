@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <style type="text/css">
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            font-family: "Courier New", sans-serif;
+        }
+
+        table {
+            margin: 0 auto;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        td, th {
+            height: 30px;
+            border: 1px solid black;
+        }
+
+        table input[type="checkbox"] {
+            zoom: 120%;
+        }
+
+        table thead tr th {
+            width: 100px;
+        }
+
+        table thead tr th:nth-child(5) {
+            width: 200px;
+        }
+
+        table tbody tr td a {
+            text-decoration: none;
+        }
+
+        #box {
+            width: 400px;
+            margin: 10px auto;
+            border: 1px solid black;
+        }
+
+        #box > p {
+            height: 40px;
+            line-height: 40px;
+            background: green;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #box form p {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 16px;
+        }
+
+        #box form input[type="checkbox"] {
+            zoom: 120%;
+        }
+
+        #box form input {
+            padding: 3px;
+            margin-right: 3px;
+        }
+
+        #box form .button {
+            background: lightgrey;
+            font-size: 14px;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            const allA = document.querySelectorAll("table tbody tr td a");
+            for (let i = 0; i < allA.length; i++) {
+                allA[i].onclick = function () {
+                    let tr = this.parentNode.parentNode;
+                    tr.parentNode.removeChild(tr);
+                };
+            }
+
+            document.getElementById("submit").onclick = function () {
+                const username = document.getElementsByName("username")[0];
+                const gender = document.getElementsByName("gender")[0];
+                const hobbies = document.getElementsByName("hobbies")[0];
+                console.log("username = " + username + ",gender = " + gender + ",hobbies = " + hobbies);
+            };
+        };
+    </script>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th><label><input type="checkbox" class="choice">选择</label></th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>爱好</th>
+        <th>创建时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><label><input type="checkbox" class="choice">1</label></td>
+        <td>张三</td>
+        <td>男</td>
+        <td>足球,羽毛球</td>
+        <td>2019-12-25 12:25:26</td>
+        <td><a href="javascript:void(0);">删除</a></td>
+    </tr>
+    <tr>
+        <td><label><input type="checkbox" class="choice">2</label></td>
+        <td>李四</td>
+        <td>男</td>
+        <td>兵乓器,排球</td>
+        <td>2019-12-25 12:25:26</td>
+        <td><a href="javascript:void(0);">删除</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<div id="box">
+    <p>添加一条记录</p>
+    <form>
+        <p><label>姓名:<input type="text" name="username"></label></p>
+        <p>
+            性别:
+            <label><input type="radio" name="gender" value="male" checked>男</label>
+            <label><input type="radio" name="gender" value="female">女</label>
+        </p>
+        <p>
+            爱好:
+            <label><input type="checkbox" name="hobbies" value="zq" checked>足球</label>
+            <label><input type="checkbox" name="hobbies" value="ymq" checked>羽毛球</label>
+            <label><input type="checkbox" name="hobbies" value="bpq">兵乓器</label>
+            <label><input type="checkbox" name="hobbies" value="pq">排球</label>
+        </p>
+        <p>
+            <input type="reset" value="重置" class="button">
+            <input type="button" value="提交" class="button" id="submit">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

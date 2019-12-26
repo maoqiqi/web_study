@@ -9,6 +9,14 @@
             padding: 0;
         }
 
+        p {
+            width: 520px;
+            margin: 0 auto;
+            text-align: center;
+            background: lightgrey;
+            font: bold 16px/50px "Courier New", sans-serif;
+        }
+
         #banner {
             width: 520px;
             height: 353px;
@@ -82,6 +90,7 @@
             // 动态创建元素
             let imagesUl = banner.querySelector("#banner ul");
             let navDiv = banner.querySelector("#banner div");
+            let infoP = document.getElementById("info");
 
             const imageMove = function () {
                 // 在开启定时器之前,需要将当前元素上的其他定时器关闭
@@ -99,6 +108,7 @@
                 }
                 console.log("index = ", index);
                 navDiv.children[index].style.backgroundColor = "black";
+                infoP.innerHTML = "一共" + imgArr.length + "张图片，当前第" + (index + 1) + "张";
                 // 使用move函数来切换图片
                 move(imagesUl, "left", -banner.offsetWidth * index, 10, function () {
                     timer = timer && setInterval(imageMove, 1000);
@@ -113,7 +123,10 @@
                 const a = document.createElement("a");
                 a.href = "javascript:;";
                 // 设置默认选中的效果
-                if (i === index) a.style.backgroundColor = "black";
+                if (i === index) {
+                    a.style.backgroundColor = "black";
+                    infoP.innerHTML = "一共" + imgArr.length + "张图片，当前第" + (index + 1) + "张";
+                }
                 // 为每一个超链接都添加一个position属性
                 a.position = i;
                 // 为超链接绑定单击响应函数
@@ -149,6 +162,7 @@
 </head>
 <body>
 
+<p id="info"></p>
 <div id="banner">
     <ul class="images">
         <!--        <li><a href="http://www.baidu.com"><img src="images/1.jpg" alt="图片轮换"></a></li>-->
