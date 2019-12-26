@@ -12,22 +12,22 @@
         .wrap {
             width: 300px;
             margin: 0 auto;
-            border: 1px solid black;
-            box-sizing: border-box;
+            /*设置显示为固定高度,不设置两边等高*/
+            /*height: 500px;*/
+            overflow: hidden;
         }
 
         .left {
             width: 100px;
-            height: 100px;
+            height: 100%;
             float: left;
-            background-color: pink;
-            border: 1px solid deeppink;
+            background-color: red;
         }
 
         .right {
+            height: 100%;
             margin-left: 100px;
-            background-color: lightblue;
-            border: 1px solid deepskyblue;
+            background-color: green;
             /*隐藏超过一行的文字*/
             display: block;
             white-space: nowrap;
@@ -36,8 +36,11 @@
         }
 
         .left, .right {
-            box-sizing: border-box;
             opacity: 0.5;
+            filter: alpha(0.5);
+            /*伪等高主要是这两行样式*/
+            padding-bottom: 10000px;
+            margin-bottom: -10000px;
         }
     </style>
 </head>
@@ -64,7 +67,7 @@
 <div class="wrap">
     <div class="left"></div>
     <div class="right">
-        此产品贱卖 买一送三,此产品贱卖 买一送三, <br>
+        此产品贱卖,买一送三. 此产品贱卖,买一送三. 此产品贱卖,买一送三. <br>
         right <br>
         right <br>
         right <br>
