@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>事件的委派</title>
+    <style type="text/css">
+        ul {
+            background: pink;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            const u1 = document.getElementById("u1");
+
+            document.getElementById("btn01").onclick = function () {
+                const li = document.createElement("li");
+                li.innerHTML = '<a href="javascript:void(0);" class="link">新的超链接</a>';
+                u1.appendChild(li);
+            };
+
+            // 为ul绑定一个单击响应函数
+            u1.onclick = function (event) {
+                event = event || window.event;
+                // 如果触发事件的对象是我们期望的元素,则执行否则不执行
+                if (event.target.className === "link") {
+                    console.log("我是ul的单击响应函数," + event.target.innerHTML);
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+
+<button id="btn01">添加超链接</button>
+
+<ul id="u1">
+    <li>
+        <p>我是p元素</p>
+    </li>
+    <li><a href="javascript:void(0);" class="link">超链接一</a></li>
+    <li><a href="javascript:void(0);" class="link">超链接二</a></li>
+    <li><a href="javascript:void(0);" class="link">超链接三</a></li>
+</ul>
+
+</body>
+</html>

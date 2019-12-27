@@ -29,6 +29,7 @@
                 obj.setCapture && obj.setCapture();
 
                 event = event || window.event;
+                console.log("clientX:" + event.clientX + ",clientY:" + event.clientY);
                 let ol = event.clientX - obj.offsetLeft;
                 let ot = event.clientY - obj.offsetTop;
 
