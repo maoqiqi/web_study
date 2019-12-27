@@ -76,4 +76,80 @@
 
 ## 事件
 
+事件指的就是用户与浏览器交互的一瞬间。
+
+### 事件处理程序
+
+* 我们可以通过两种方式为一个元素绑定事件处理程序: 
+  * 通过HTML元素指定事件属性来绑定
+    * 通过HTML属性来绑定事件处理程序是最简单的方式。
+      
+      ```
+      <button onclick="alert('hello');alert('world')">按钮</button>
+      ```
+      
+    * 这种方式当我们点击按钮以后,onclick属性中对应的JS代码将会执行,也就是点击按钮以后,页面中会弹出两个提示框。
+    * 这种方式我们直接将代码编写到了onclick属性中,可以编写多行js代码,当然也可以事先在外部定义好函数。
+    * 这种方式的优点在于,设定步骤非常简单,并且能够确保事件处理程序会在载入时被设定。
+    * 如果在函数的最后return false则会取消元素的默认行为。
+  * 通过DOM对象指定的属性来绑定
+    * 但是其实上面的写法虽然简单,但却将JS和HTML的代码编写到了一起,并不推荐使用,我们更推荐如下的写法:
+      
+      ```
+      var btn = document.getElementById('btn'); btn.onclick = function(){
+        alert("hello"); 
+      };
+      ```
+      
+    * 这种写法将HTML代码和JS写在不同的位置,维护起来更加容易。
+* 这两种方式都是我们日常用的比较多的,但是更推荐使用第二种方式。
+* 还有一种方式比较特殊我们称为设置事件监听器。使用如下方式:
+  * 元素对象.addEventListener()
+    * 前边两种方式都可以绑定事件处理程序,但是它们都有一个缺 点就是都只能绑定一个程序,而不能为一个事件绑定多个程序。
+    * 这是我们就可以使用addEventListener()来处理,这个方法需 要两个参数:一个是事件字符串,一个是响应函数。
+      
+      ```
+      btn.addEventListener('click' , function(){alert("hello");});
+      ```
+      
+    * 但是要注意的是ie8以下的浏览器是不支持上边的方法的,需要 使用attachEvent代替。
+    * 也可以使用removeEventListener()和detachEvent()移除事件。
+ 
+### 事件处理中的this
+
+* 在事件处理程序内的 this 所引用的对象即 是设定了该事件处理程序的元素。
+* 也就是事件是给那个对象绑定的this就是哪 个对象。
+
+### 事件对象
+
+* 在DOM对象上的某个事件被触发时,会产生一个 事件对象Event,这个对象中包含着所有事件有关 的信息。包括导致事件的元素、事件的类型以及其 他与特定事件相关的信息。
+* 例如,鼠标操作导致的事件对象中,会包含鼠标位 置的信息,而键盘操作导致的事件对象中,会包含 与按下的键有关的信息。所有浏览器都支持 event 对象,但支持方式不同。
+* DOM标准的浏览器会将一个event对象传入到事件的处理程序 当中。无论事件处理程序是什么都会传入一个event对象。
+* 可以通过这种方式获取:
+  
+  ```
+  btn.onclick = function(event){ alert(event.type);
+  };
+  ```
+  
+* Event对象包含与创建它的特定事件有关的属性和方法。触发 的事件类型不一样,可用的属性和方法也不一样。
+
+
+Event对象的通用属性/方法
+ 
+| 属性/方法                    | 类型      | 读/写     | 说明 |
+|：---------------------------|:---------|----------|------|
+| bubbles                    | Boolean  | 只读      | 事件是否冒泡 |
+| cancelable                 | Boolean  | 只读      | 是否可以取消事件的默认行为 |
+| currentTarget              | Element  | 只读      | 当前正在处理的事件元素 |
+| defaultPrevented           | Boolean  | 只读      | 是否调用了preventDefault() |
+| detail                     | Number   | 只读      | 与事件相关的细节信息 |
+| eventPhase                 | Number   | 只读      | 阶段 1:捕获 2:目标 3:冒泡 |
+| preventDefault()           | Function | 只读      | 取消事件的默认行为 |
+| stopImmediatePropagation() | Function | 只读      | 取消事件的进一步捕获或冒泡 |
+| stopPropagation()          | Function | 只读      | 取消事件的进一步捕获或冒泡 |
+| target                     | Element  | 只读      | 事件的目标 |
+| trusted                    | Boolean  | 只读      | 是否是浏览器内置事件 |
+| type                       | String   | 只读      | 被触发的事件的类型 |
+
 ## BOM
