@@ -36,6 +36,10 @@
             width: 200px;
         }
 
+        table tbody tr:nth-child(odd) {
+            background: lightgrey;
+        }
+
         table tbody tr td a {
             text-decoration: none;
         }
@@ -76,20 +80,39 @@
         }
     </style>
     <script type="text/javascript">
+        function removeTr() {
+            let tr = this.parentNode.parentNode;
+            if (confirm("确认删除" + tr.children[1].innerHTML + "吗?")) {
+                tr.parentNode.removeChild(tr);
+            }
+            return false;
+        }
+
         window.onload = function () {
             const allA = document.querySelectorAll("table tbody tr td a");
-            for (let i = 0; i < allA.length; i++) {
-                allA[i].onclick = function () {
-                    let tr = this.parentNode.parentNode;
-                    tr.parentNode.removeChild(tr);
-                };
+            let len = allA.length;
+            for (let i = 0; i < len; i++) {
+                allA[i].onclick = removeTr;
             }
 
-            document.getElementById("submit").onclick = function () {
+            document.getElementById("add").onclick = function () {
                 const username = document.getElementsByName("username")[0];
                 const gender = document.getElementsByName("gender")[0];
                 const hobbies = document.getElementsByName("hobbies")[0];
                 console.log("username = " + username + ",gender = " + gender + ",hobbies = " + hobbies);
+
+                len++;
+                const tr = document.createElement("tr");
+                tr.innerHTML = '<td><label><input type="checkbox" class="choice">' + len + '</label></td>' +
+                    '<td>' + username.value + '</td>' +
+                    '<td>男</td>' +
+                    '<td>兵乓器,排球</td>' +
+                    '<td>2019-12-25 12:25:26</td>' +
+                    '<td><a href="javascript:void(0);">删除</a></td>';
+
+                // 获取刚刚添加的a元素,并为其绑定单击响应函数
+                tr.querySelector("td a").onclick = removeTr;
+                document.querySelector("tbody").appendChild(tr);
             };
         };
     </script>
@@ -130,7 +153,7 @@
 <div id="box">
     <p>添加一条记录</p>
     <form>
-        <p><label>姓名:<input type="text" name="username"></label></p>
+        <p><label>姓名:<input type="text" name="username" value="测试"></label></p>
         <p>
             性别:
             <label><input type="radio" name="gender" value="male" checked>男</label>
@@ -145,7 +168,7 @@
         </p>
         <p>
             <input type="reset" value="重置" class="button">
-            <input type="button" value="提交" class="button" id="submit">
+            <input type="button" value="添加" class="button" id="add">
         </p>
     </form>
 </div>
