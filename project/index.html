@@ -4,75 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <meta name="description" content="首页">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="March,personal,website"/>
+    <meta name="description" content="March's personal website">
     <meta name="author" content="March">
     <link rel="icon" href="favicon.ico">
-    <title>首页</title>
+    <title>March's personal website - Home</title>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-        /*品牌*/
-        .navbar .march-brand {
-            padding: 9px;
-        }
-
-        .navbar .march-dropdown-menu li:nth-child(odd) a {
-            padding: 10px 20px;
-        }
-
-        .navbar .march-divider {
-            margin: 0;
-        }
-
-        /*轮播图*/
-        .march-carousel {
-            margin-top: 50px;
-        }
-
-        .carousel-inner img {
-            width: 100%;
-        }
-
-        .carousel-inner .march-carousel-caption {
-            padding-bottom: 50px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .carousel-inner .march-carousel-caption {
-                padding-bottom: 30px;
-                font-size: 18px;
-            }
-        }
-
-        /*描述*/
-        .container .march-description {
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        /*分割线*/
-        .container hr {
-            margin-top: 30px;
-            margin-bottom: 50px;
-        }
-
-        /*缩略图*/
-        .container .march-thumbnail {
-            border: none;
-            color: gray;
-            text-align: center;
-        }
-
-        #march-content {
-            padding-top: 50px;
-        }
-
-        .test div {
-            border: 1px solid green;
-        }
-    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
@@ -216,7 +157,7 @@
 <!--内容-->
 <div class="container" id="march-content">
     <div class="row">
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-xs-12 col-sm-8">
             <!--标签页-->
             <div>
                 <ul class="nav nav-tabs" role="tablist" id="tab-list">
@@ -292,9 +233,23 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-3 test">
-            <div>个人信息</div>
-            <div>个人信息</div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="march-bio">
+                <div class="march-bg-container">
+                    <img src="images/personal.jpg" alt="personal" class="march-bg">
+                    <div class="march-bg-hover">
+                        <p class="march-name">@March</p>
+                        <p class="march-desc">靠代码行数来衡量开发进度,就像是凭重量来衡量飞机制造的进度。</p>
+                    </div>
+                </div>
+                <div class="march-avatar-container">
+                    <img src="logo.png" alt="avatar" class="avatar">
+                    <img src="logo.png" alt="avatar" class="avatar-hover">
+                </div>
+                <div class="march-data">
+                    div div div div div div div div div div<br>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -341,6 +296,10 @@
     div <br>
     div <br>
     div <br>
+</div>
+
+<div class="container-fluid march-footer">
+    &copy; March 2020 <span class="iconfont icon-logo"></span> March's personal website
 </div>
 
 <script src="js/jquery.min.js"></script>
