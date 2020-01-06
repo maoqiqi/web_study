@@ -158,9 +158,9 @@
 }
 
 .march-social a {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
+    width: 48px;
+    height: 48px;
+    margin: 8px;
     border-radius: 50%;
     /*todo*/
     display: inline-flex;
@@ -191,29 +191,34 @@
 }
 
 /*社交背景*/
+.social-item-github {
+    background: linear-gradient(45deg, #222121, #616061);
+    box-shadow: 0 4px 30px rgba(63, 65, 67, 0.6);
+}
+
 .social-item-facebook {
     background: linear-gradient(45deg, #3b5998, #0078d7);
     box-shadow: 0 4px 30px rgba(43, 98, 169, 0.5);
 }
 
 .social-item-twitter {
-    background: linear-gradient(45deg, #1da1f2, #0e71c8);
+    background: linear-gradient(45deg, #3FADE2, #0e66bb);
     box-shadow: 0 4px 30px rgba(19, 127, 212, 0.7);
 }
 
-.social-item-instagram {
+.social-item-dou-ban {
+    background: linear-gradient(45deg, #339B43, #8EC7A3);
+    box-shadow: 0 4px 30px rgba(120, 64, 190, 0.6);
+}
+
+.social-item-gmail {
     background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
     box-shadow: 0 4px 30px rgba(120, 64, 190, 0.6);
 }
 
-.social-item-behance {
-    background: linear-gradient(45deg, #1769ff, #213fca);
+.social-item-zhi-hu {
+    background: linear-gradient(45deg, #0077D6, #0050a0);
     box-shadow: 0 4px 30px rgba(27, 86, 231, 0.7);
-}
-
-.social-item-github {
-    background: linear-gradient(45deg, #333333, #626b73);
-    box-shadow: 0 4px 30px rgba(63, 65, 67, 0.6);
 }
 
 .social-item-link {
