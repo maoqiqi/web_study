@@ -15,11 +15,11 @@
         font-size: 22px;
     }
 
-    #march-music-1 {
+    .march-music-1 {
         padding: 0 10px;
     }
 
-    #march-music-2 {
+    .navbar-nav > li > .march-music-2 {
         display: none;
     }
 }
@@ -29,13 +29,60 @@
         font-size: 19px;
     }
 
-    #march-music-1 {
+    .march-music-1 {
         display: none;
     }
 
-    #march-music-2 {
-        padding: 14px !important;
+    .navbar-inverse .navbar-nav > li > .march-music-2 {
+        padding: 14px 14px 13px;
+        border-bottom: 1px solid transparent;
     }
+}
+
+/*音乐内容*/
+.march-music-content {
+    width: 200px;
+    /*height: 50px;*/
+    background-color: rgba(63, 65, 67, 0.6);
+    position: absolute;
+    right: 0;
+    display: none;
+    list-style: none;
+}
+
+/*音乐列表*/
+.march-music-content ul {
+    padding: 0;
+}
+
+.march-music-content ul li {
+    list-style: none;
+    border-bottom: 1px solid white;
+}
+
+.march-music-content ul li:last-child {
+    border-bottom: none;
+}
+
+.march-music-content ul li a {
+    padding: 0 8px;
+    line-height: 32px;
+    color: white;
+    text-decoration: none;
+}
+
+/*悬浮*/
+.navbar-inverse .navbar-nav > li > .march-music-2:hover, .navbar-inverse .navbar-nav > li > .march-music-2-hover {
+    background-color: rgba(63, 65, 67, 0.6);
+    border-bottom: 1px solid #c3c3c3;
+}
+
+.navbar-inverse .navbar-nav > li > .march-music-2:hover span, .navbar-inverse .navbar-nav > li > .march-music-2-hover span {
+    color: #c3c3c3;
+}
+
+.navbar-inverse .navbar-nav > li > .march-music-2:hover + .march-music-content, .march-music-content:hover {
+    display: block;
 }
 
 /*调整选项的间距*/
