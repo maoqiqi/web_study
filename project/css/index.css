@@ -3,6 +3,42 @@
     padding: 9px;
 }
 
+/*音乐*/
+.march-music span {
+    font-weight: bold;
+    color: white;
+}
+
+/*音乐按钮兼容*/
+@media only screen and (max-width: 768px) {
+    .march-music span {
+        font-size: 22px;
+    }
+
+    #march-music-1 {
+        padding: 0 10px;
+    }
+
+    #march-music-2 {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .march-music span {
+        font-size: 19px;
+    }
+
+    #march-music-1 {
+        display: none;
+    }
+
+    #march-music-2 {
+        padding: 14px !important;
+    }
+}
+
+/*调整选项的间距*/
 .navbar .march-dropdown-menu li:nth-child(odd) a {
     padding: 10px 20px;
 }
@@ -52,8 +88,9 @@
     text-align: center;
 }
 
-#march-content {
-    padding-top: 50px;
+/*内容*/
+#march-content > .row > div {
+    margin-top: 50px;
 }
 
 /*个人信息*/
@@ -208,7 +245,7 @@
 
 .social-item-dou-ban {
     background: linear-gradient(45deg, #339B43, #8EC7A3);
-    box-shadow: 0 4px 30px rgba(120, 64, 190, 0.6);
+    box-shadow: 0 4px 30px rgba(100, 180, 100, 0.6);
 }
 
 .social-item-gmail {
@@ -224,6 +261,11 @@
 .social-item-link {
     background: linear-gradient(45deg, #d5135a, #f05924);
     box-shadow: 0 4px 30px rgba(223, 45, 70, 0.6);
+}
+
+#march-content .tab-content div {
+    height: 400px;
+    background-color: green;
 }
 
 /*自定义按钮*/

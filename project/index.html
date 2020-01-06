@@ -17,6 +17,7 @@
 </head>
 <body>
 
+<!--导航条-->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -26,10 +27,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <!--品牌-->
             <a class="navbar-brand march-brand" href="#"><img alt="Brand" src="logo.png"></a>
+            <!--音乐-->
+            <button class="navbar-toggle collapsed march-music" id="march-music-1"><span class="iconfont icon-music"></span></button>
+<!--            <audio class="navbar-btn march-audio" src="audio/home.mp3" autoplay="autoplay" controls>浏览器不支持HTML5</audio>-->
+<!--            <ul class="nav navbar-nav">-->
+<!--                <li class="dropdown">-->
+<!--                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文章 <span class="caret"></span></a>-->
+<!--                    <div class="dropdown-menu march-dropdown-menu" id="dropdown-music">-->
+<!--                        div <br>-->
+<!--                        div <br>-->
+<!--                        div <br>-->
+<!--                    </div>-->
+<!--                </li>-->
+<!--            </ul>-->
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
+                <!--音乐-->
+                <li><a class="march-music" id="march-music-2"><span class="iconfont icon-music"></span></a></li>
                 <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文章 <span class="caret"></span></a>
@@ -52,7 +69,7 @@
                 <li><a href="#">关于</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+    </div><!-- /.container -->
 </nav>
 
 <!--轮播图-->
@@ -157,83 +174,7 @@
 <!--内容-->
 <div class="container" id="march-content">
     <div class="row">
-        <div class="col-xs-12 col-sm-9">
-            <!--标签页-->
-            <div>
-                <ul class="nav nav-tabs" role="tablist" id="tab-list">
-                    <li role="presentation" class="active"><a href="#html5" aria-controls="html5" role="tab" data-toggle="tab">HTML5</a></li>
-                    <li role="presentation"><a href="#css3" aria-controls="css3" role="tab" data-toggle="tab">CSS3</a></li>
-                    <li role="presentation"><a href="#java-script" aria-controls="java-script" role="tab" data-toggle="tab">JavaScript</a></li>
-                    <li role="presentation"><a href="#java" aria-controls="java" role="tab" data-toggle="tab">Java</a></li>
-                    <li role="presentation"><a href="#android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
-                    <li role="presentation"><a href="#golang" aria-controls="golang" role="tab" data-toggle="tab">Golang</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="html5">
-                        HTML5 <br>
-                        HTML5 <br>
-                        HTML5 <br>
-                        HTML5 <br>
-                        HTML5 <br>
-                        HTML5 <br>
-                        HTML5 <br>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="css3">
-                        CSS3 <br>
-                        CSS3 <br>
-                        CSS3 <br>
-                        CSS3 <br>
-                        CSS3 <br>
-                        CSS3 <br>
-                        CSS3 <br>
-                        CSS3 <br>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="java-script">
-                        JavaScript <br>
-                        JavaScript <br>
-                        JavaScript <br>
-                        JavaScript <br>
-                        JavaScript <br>
-                        JavaScript <br>
-                        JavaScript <br>
-                        JavaScript <br>
-                        JavaScript <br>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="java">
-                        Java <br>
-                        Java <br>
-                        Java <br>
-                        Java <br>
-                        Java <br>
-                        Java <br>
-                        Java <br>
-                        Java <br>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="android">
-                        Android <br>
-                        Android <br>
-                        Android <br>
-                        Android <br>
-                        Android <br>
-                        Android <br>
-                        Android <br>
-                        Android <br>
-                        Android <br>
-                        Android <br>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="golang">
-                        Golang <br>
-                        Golang <br>
-                        Golang <br>
-                        Golang <br>
-                        Golang <br>
-                        Golang <br>
-                        Golang <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-3">
+        <div class="col-xs-12 col-sm-3 col-sm-push-9">
             <div class="march-bio">
                 <div class="march-bg-container">
                     <img src="images/personal.jpg" alt="personal" class="march-bg">
@@ -247,13 +188,87 @@
                     <img src="images/github.png" alt="avatar" class="avatar-hover">
                 </div>
                 <div class="march-social">
-                    <a href="javascript:void(0);" class="social-item-github"><span class="iconfont icon-github"></span></a>
+                    <a href="https://github.com/maoqiqi" target="_blank" class="social-item-github"><span class="iconfont icon-github"></span></a>
                     <a href="javascript:void(0);" class="social-item-facebook"><span class="iconfont icon-facebook"></span></a>
                     <a href="javascript:void(0);" class="social-item-twitter"><span class="iconfont icon-twitter"></span></a>
-                    <a href="javascript:void(0);" class="social-item-zhi-hu"><span class="iconfont icon-zhi-hu"></span></a>
-                    <a href="javascript:void(0);" class="social-item-dou-ban"><span class="iconfont icon-dou-ban"></span></a>
-                    <a href="javascript:void(0);" class="social-item-gmail"><span class="iconfont icon-gmail"></span></a>
+                    <a href="http://zhihu.com/people/maofengqi" target="_blank" class="social-item-zhi-hu"><span class="iconfont icon-zhi-hu"></span></a>
+                    <a href="https://www.douban.com/people/maofengqi/" target="_blank" class="social-item-dou-ban"><span class="iconfont icon-dou-ban"></span></a>
+                    <a href="mailto:fengqi.mao.march@gmail.com" class="social-item-gmail"><span class="iconfont icon-gmail"></span></a>
                     <a href="javascript:void(0);" class="social-item-link"><span class="iconfont icon-link"></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-9 col-sm-pull-3">
+            <!--标签页-->
+            <ul class="nav nav-tabs" role="tablist" id="tab-list">
+                <li role="presentation" class="active"><a href="#html5" aria-controls="html5" role="tab" data-toggle="tab">HTML5</a></li>
+                <li role="presentation"><a href="#css3" aria-controls="css3" role="tab" data-toggle="tab">CSS3</a></li>
+                <li role="presentation"><a href="#java-script" aria-controls="java-script" role="tab" data-toggle="tab">JavaScript</a></li>
+                <li role="presentation"><a href="#java" aria-controls="java" role="tab" data-toggle="tab">Java</a></li>
+                <li role="presentation"><a href="#android" aria-controls="android" role="tab" data-toggle="tab">Android</a></li>
+                <li role="presentation"><a href="#golang" aria-controls="golang" role="tab" data-toggle="tab">Golang</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="html5">
+                    HTML5 <br>
+                    HTML5 <br>
+                    HTML5 <br>
+                    HTML5 <br>
+                    HTML5 <br>
+                    HTML5 <br>
+                    HTML5 <br>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="css3">
+                    CSS3 <br>
+                    CSS3 <br>
+                    CSS3 <br>
+                    CSS3 <br>
+                    CSS3 <br>
+                    CSS3 <br>
+                    CSS3 <br>
+                    CSS3 <br>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="java-script">
+                    JavaScript <br>
+                    JavaScript <br>
+                    JavaScript <br>
+                    JavaScript <br>
+                    JavaScript <br>
+                    JavaScript <br>
+                    JavaScript <br>
+                    JavaScript <br>
+                    JavaScript <br>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="java">
+                    Java <br>
+                    Java <br>
+                    Java <br>
+                    Java <br>
+                    Java <br>
+                    Java <br>
+                    Java <br>
+                    Java <br>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="android">
+                    Android <br>
+                    Android <br>
+                    Android <br>
+                    Android <br>
+                    Android <br>
+                    Android <br>
+                    Android <br>
+                    Android <br>
+                    Android <br>
+                    Android <br>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="golang">
+                    Golang <br>
+                    Golang <br>
+                    Golang <br>
+                    Golang <br>
+                    Golang <br>
+                    Golang <br>
+                    Golang <br>
                 </div>
             </div>
         </div>
