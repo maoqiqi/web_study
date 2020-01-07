@@ -30,22 +30,15 @@
             <!--品牌-->
             <a class="navbar-brand march-brand" href="#"><img alt="Brand" src="logo.png"></a>
             <!--音乐-->
-            <button class="navbar-toggle collapsed march-music" id="march-music-1"><span class="iconfont icon-play"></span></button>
+            <button class="navbar-toggle collapsed march-play-pause march-music-1"><span class="iconfont icon-play"></span></button>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <!--音乐-->
                 <li>
-                    <a class="march-music march-music-2"><span class="iconfont icon-play"></span></a>
+                    <a class="march-play-pause march-music-2"><span class="iconfont icon-play"></span></a>
                     <div class="march-music-content">
-                        <ul>
-                            <li><a href="#html5">音乐列表1</a></li>
-                            <li><a href="#css3">音乐列表2</a></li>
-                            <li><a href="#java-script">音乐列表3</a></li>
-                            <li><a href="#java">音乐列表4</a></li>
-                            <li><a href="#android">音乐列表5</a></li>
-                            <li><a href="#golang">音乐列表6</a></li>
-                        </ul>
+                        <ul></ul>
                     </div>
                 </li>
                 <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
@@ -325,33 +318,93 @@
         obj.className = obj.className.replace(reg, "").trim();
     }
 
-    $(window).load(function () {
-        let music2 = $(".march-music-2")[0];
-        // 鼠标进
-        $(".march-music-content").mouseover(function () {
-            addClass(music2, "march-music-2-hover");
-        });
-        // 鼠标出
-        $(".march-music-content").mouseout(function () {
-            removeClass(music2, "march-music-2-hover");
-        });
+    // 音乐样式
+    let playPauseElement = $(".march-play-pause");
+    let music2Element = $(".march-music-2")[0];
+    let musicContentElement = $(".march-music-content");
+    let musicUlElement = musicContentElement.children()[0];
+    let audio = $("#march-audio")[0];
+    let data;
+    let position = 0;
+
+    // 鼠标进
+    musicContentElement.mouseover(function () {
+        addClass(music2Element, "march-music-2-hover");
     });
+    // 鼠标出
+    musicContentElement.mouseout(function () {
+        removeClass(music2Element, "march-music-2-hover");
+    });
+
+    // 读取音乐列表
+    const url = "data/music.json";
+    let request = new XMLHttpRequest();
+    request.open("get", url);
+    request.send(null);
+    request.onload = function () {
+        if (request.status === 200) {
+            data = JSON.parse(request.responseText);
+            createMusicList();
+            playPauseElement.click(setPlayPause);
+        }
+    };
+
+    // 播放列表
+    function createMusicList() {
+        for (let i = 0; i < data.length; i++) {
+            let aElement = document.createElement("a");
+            let liElement = document.createElement("li");
+            aElement.onclick = function (e) {
+                console.log("下载");
+                // e.preventDefault();
+                // 阻止事件冒泡
+                e.stopPropagation();
+            };
+
+            aElement.innerHTML = '<span class="glyphicon glyphicon-download-alt"></span>';
+            liElement.innerHTML = data[i]["name"] + " - " + data[i]["author"];
+            liElement.appendChild(aElement);
+
+            if (i === position) addClass(liElement, "selected");
+            liElement.index = i;
+            liElement.onclick = switchMusic;
+            musicUlElement.appendChild(liElement);
+        }
+    }
+
+    // 切换音乐
+    function switchMusic() {
+        removeClass(musicUlElement.children[position], "selected");
+        position = this.index;
+        addClass(musicUlElement.children[position], "selected");
+        setPlayPause();
+    }
+
+    // 设置播放暂停
+    function setPlayPause() {
+        if (this instanceof Window || audio.paused) {
+            audio.src = data[position]["link"];
+            audio.play();
+            updatePlayPause("iconfont icon-pause");
+        } else {
+            audio.pause();
+            updatePlayPause("iconfont icon-play");
+        }
+    }
+
+    // 更新按钮
+    function updatePlayPause(className) {
+        for (let i = 0; i < playPauseElement.length; i++) {
+            playPauseElement[i].children[0].className = className;
+        }
+    }
+
+    // 菜单
     $("#dropdown-menu > li > a").click(function (e) {
         let href = $(this).attr("href");
         $("#tab-list > li > a[href='" + href + "']").tab("show");
         $(document).scrollTop($("#march-content").offset().top);
         e.preventDefault();
-    });
-    $(".march-music").click(function () {
-        let audio = $("#march-audio")[0];
-        if (audio.paused) {
-            audio.src = "https://www.17sucai.com/preview/63045/2015-02-11/slideshow/audio/home.mp3";
-            audio.play();
-            this.children[0].className = "iconfont icon-pause";
-        } else {
-            audio.pause();
-            this.children[0].className = "iconfont icon-play";
-        }
     });
 </script>
 </body>

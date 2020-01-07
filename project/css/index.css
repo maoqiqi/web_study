@@ -4,19 +4,20 @@
 }
 
 /*音乐*/
-.march-music span {
+.march-play-pause span {
     font-weight: bold;
     color: white;
 }
 
 /*音乐按钮兼容*/
-@media only screen and (max-width: 768px) {
-    .march-music span {
-        font-size: 22px;
+@media only screen and (max-width: 767px) {
+    .march-play-pause span {
+        font-size: 23px;
     }
 
     .march-music-1 {
-        padding: 0 10px;
+        padding: 0 9px;
+        margin: 8px 0;
     }
 
     .navbar-nav > li > .march-music-2 {
@@ -25,7 +26,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .march-music span {
+    .march-play-pause span {
         font-size: 19px;
     }
 
@@ -41,12 +42,12 @@
 
 /*音乐内容*/
 .march-music-content {
-    width: 200px;
+    width: 280px;
     /*height: 50px;*/
-    background-color: rgba(63, 65, 67, 0.6);
+    background-color: rgba(63, 65, 67, 0.7);
     position: absolute;
     right: 0;
-    display: none;
+    /*display: none;*/
     list-style: none;
 }
 
@@ -55,26 +56,45 @@
     padding: 0;
 }
 
+/*音乐默认*/
 .march-music-content ul li {
     list-style: none;
     border-bottom: 1px solid white;
+    padding: 0 45px 0 15px;
+    color: white;
+    font-size: 12px;
+    line-height: 30px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
 }
 
 .march-music-content ul li:last-child {
     border-bottom: none;
 }
 
+/*音乐选中*/
+.march-music-content ul li.selected {
+    color: red;
+}
+
 .march-music-content ul li a {
-    padding: 0 8px;
-    line-height: 32px;
-    color: white;
-    text-decoration: none;
+    padding: 8px;
+    color: black;
+    /*垂直居中*/
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
 }
 
 /*悬浮*/
 .navbar-inverse .navbar-nav > li > .march-music-2:hover, .navbar-inverse .navbar-nav > li > .march-music-2-hover {
     background-color: rgba(63, 65, 67, 0.6);
     border-bottom: 1px solid #c3c3c3;
+    cursor: pointer;
 }
 
 .navbar-inverse .navbar-nav > li > .march-music-2:hover span, .navbar-inverse .navbar-nav > li > .march-music-2-hover span {
@@ -82,6 +102,17 @@
 }
 
 .navbar-inverse .navbar-nav > li > .march-music-2:hover + .march-music-content, .march-music-content:hover {
+    display: block;
+    cursor: pointer;
+}
+
+/*音乐悬浮*/
+.march-music-content ul li:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+}
+
+.march-music-content ul li:hover a {
     display: block;
 }
 
