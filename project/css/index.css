@@ -27,7 +27,7 @@
 
 @media only screen and (min-width: 768px) {
     .march-play-pause span {
-        font-size: 19px;
+        font-size: 15px;
     }
 
     .march-music-1 {
@@ -35,8 +35,8 @@
     }
 
     .navbar-inverse .navbar-nav > li > .march-music-2 {
-        padding: 14px 14px 13px;
-        border-bottom: 1px solid transparent;
+        padding: 14px;
+        border: 1px solid transparent;
     }
 }
 
@@ -45,9 +45,11 @@
     width: 280px;
     /*height: 50px;*/
     background-color: rgba(63, 65, 67, 0.7);
+    border: 1px solid #3F4143;
+    border-top: none;
     position: absolute;
     right: 0;
-    /*display: none;*/
+    display: none;
     list-style: none;
 }
 
@@ -76,7 +78,7 @@
 
 /*音乐选中*/
 .march-music-content ul li.selected {
-    color: red;
+    color: orange;
 }
 
 .march-music-content ul li a {
@@ -93,7 +95,8 @@
 /*悬浮*/
 .navbar-inverse .navbar-nav > li > .march-music-2:hover, .navbar-inverse .navbar-nav > li > .march-music-2-hover {
     background-color: rgba(63, 65, 67, 0.6);
-    border-bottom: 1px solid #c3c3c3;
+    border: 1px solid #3F4143;
+    /*border-bottom: 1px solid #dddddd;*/
     cursor: pointer;
 }
 
