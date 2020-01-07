@@ -111,3 +111,9 @@ $("#dropdown-menu > li > a").click(function (e) {
     navbarMenu.className = "collapse navbar-collapse";
     e.preventDefault();
 });
+
+// 更多
+$(".march-more").click(function () {
+    $(".march-hide").show();
+    $(this).hide();
+});

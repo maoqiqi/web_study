@@ -180,6 +180,7 @@
     background-color: #dde1e2;
     box-shadow: #bdc3c7 0 5px 5px;
     position: relative;
+    padding-bottom: 15px;
 }
 
 .march-bio .march-bg-container {
@@ -268,7 +269,7 @@
 
 /*社交*/
 .march-bio .march-social {
-    padding: 50px 0 30px;
+    padding-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -344,9 +345,137 @@
     box-shadow: 0 4px 30px rgba(223, 45, 70, 0.6);
 }
 
+/*更多*/
+.march-hide {
+    display: none;
+}
+
+.march-more {
+    margin: 15px 0 0;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    color: #777;
+}
+
+.march-more:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+/*信息*/
+.march-info {
+    list-style: none;
+    background-color: #fff;
+    padding: 0;
+}
+
+.march-info li {
+    float: left;
+    border: 1px solid black;
+    width: 25%;
+    text-align: center;
+    border-right: 1px solid #f1f1f1;
+    box-sizing: border-box;
+}
+
+.march-info li:last-child {
+    /*border-right: none;*/
+}
+
+.march-info li strong {
+    font-weight: normal;
+    line-height: 25px;
+    overflow: hidden;
+    font-size: 20px;
+    position: relative;
+}
+
+.march-info li i {
+    position: absolute;
+    top: -10px;
+    color: #ffffff;
+    background-color: #ff5722;
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 2px;
+    right: -30px;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 16px;
+    width: 20px;
+}
+
+.march-info li span {
+    font-size: 12px;
+    display: block;
+    color: #808080;
+}
+
+/*内容*/
 #march-content .tab-content div {
-    height: 400px;
+    min-height: 400px;
     background-color: green;
+}
+
+#html5 {
+    padding: 15px;
+    background-color: #fff;
+    clear: both;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 800px;
+    background-image: url(../images/058.png);
+}
+
+#html5 h2 {
+    margin-bottom: 15px;
+}
+
+#html5 p {
+    font-size: 15px;
+    line-height: 30px;
+    text-indent: 2em;
+    word-break: break-all;
+}
+
+#html5 .march-no-indent {
+    text-indent: 0;
+}
+
+.verify {
+    display: block;
+    background-color: red;
+}
+
+.verify img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #f2f2f5;
+    background-color: #e0dcdc
+}
+
+.verify a {
+    display: inline-block;
+    height: 100%;
+}
+
+.verify a {
+    position: relative;
+}
+
+.verify i {
+    width: 16px;
+    height: 16px;
+    background-image: url(../images/lmlblog-verify-icon.png);
+    background-size: 16px;
+    /*background-position: 0px -20px;*/
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 /*自定义按钮*/
