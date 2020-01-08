@@ -85,17 +85,21 @@ function switchMusic() {
 function setPlayPause() {
     if (this instanceof Window || audio.paused) {
         audio.play();
-        updatePlayPause("iconfont icon-pause");
+        updatePlayPause(false);
     } else {
         audio.pause();
-        updatePlayPause("iconfont icon-play");
+        updatePlayPause(true);
     }
 }
 
 // 更新按钮
-function updatePlayPause(className) {
-    for (let i = 0; i < playPauseElement.length; i++) {
-        playPauseElement[i].children[0].className = className;
+function updatePlayPause(on) {
+    if (on) {
+        playPauseElement[0].children[0].className = "iconfont icon-music-off";
+        playPauseElement[1].children[0].className = "iconfont icon-play";
+    } else {
+        playPauseElement[0].children[0].className = "iconfont icon-music";
+        playPauseElement[1].children[0].className = "iconfont icon-pause";
     }
 }
 
