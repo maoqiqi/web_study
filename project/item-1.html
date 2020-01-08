@@ -13,10 +13,276 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="iconfont/iconfont.css">
-    <link rel="stylesheet" href="css/index.css">
+    <style type="text/css">
+        #march-content .tab-content div {
+            /*padding: 15px;*/
+            /*background-color: #fff;*/
+            /*clear: both;*/
+            /*border-radius: 2px;*/
+            /*margin-bottom: 15px;*/
+            /*background-repeat: no-repeat;*/
+            /*background-position: right top;*/
+            /*background-size: 800px;*/
+            /*background-image: url(images/058.png);*/
+            /*background-color: pink;*/
+        }
+
+        #march-content .tab-content div h2 {
+            margin-bottom: 15px;
+        }
+
+        #march-content .tab-content div p {
+            font-size: 15px;
+            line-height: 30px;
+            text-indent: 2em;
+            word-break: break-all;
+        }
+
+        #march-content .tab-content div .march-no-indent {
+            text-indent: 0;
+        }
+
+        #march-content .tab-content div video:focus {
+            outline: none;
+        }
+
+        /*从这里开始*/
+        .march-item {
+            position: relative;
+            background-color: pink;
+        }
+
+        /*用户信息*/
+        .march-user-info {
+            position: relative;
+        }
+
+        /*头像*/
+        .march-user-info .avatar {
+            width: 60px;
+            height: 60px;
+            margin: 15px;
+            float: left;
+        }
+
+        .march-user-info .avatar a {
+            display: block;
+            height: 100%;
+            position: relative;
+        }
+
+        .march-user-info .avatar a img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid #f3f3f3;
+            background-color: #e0dcdc
+        }
+
+        .march-user-info .avatar a .vip {
+            width: 26px;
+            height: 12px;
+            background-image: url(images/bbs_vip.png);
+            position: absolute;
+            bottom: 8px;
+            right: 1px;
+        }
+
+        .march-user-info .avatar a .verify {
+            width: 16px;
+            height: 16px;
+            background-image: url(images/lmlblog-verify-icon.png);
+            background-size: 16px;
+            /*background-position: 0 0;*/
+            background-position: 0 -20px;
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+        }
+
+        /*展开个人信息*/
+        .march-user-info .card {
+            width: 375px;
+            height: 240px;
+            background: white;
+            border-radius: 2px;
+            box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            left: 100px;
+            display: none;
+        }
+
+        .march-user-info .card .card_loading {
+            text-align: center;
+            margin-top: 80px;
+            cursor: pointer;
+        }
+
+        .march-user-info .avatar:hover + .card {
+            display: block;
+        }
+
+        /*名称*/
+        .march-user-info .name {
+            display: inline-block;
+            padding: 20px 0;
+        }
+
+        .march-user-info .name div {
+            height: 30px;
+        }
+
+        .march-user-info .name div a {
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+
+        .march-user-info .name div .mark {
+            margin-left: 8px;
+            padding: 2px 5px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: white;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+        }
+
+        .march-user-info .name div .mark-lv {
+            background-color: #FFB800;
+        }
+
+        .march-user-info .name div .mark-vip {
+            background-color: #FF5722;
+        }
+
+        .march-user-info .name div .time {
+            font-size: 14px;
+            color: #808080;
+            cursor: pointer;
+        }
+
+        /*设置*/
+        .march-user-setting {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 10px;
+
+            /*float: right;*/
+            /*margin-top: -7px;*/
+            /*color: #88898A;*/
+            /*margin-left: 20px;*/
+            /*font-size: 22px;*/
+            /*cursor: pointer;*/
+            /*position: relative;*/
+            /*margin-right: 15px;*/
+        }
+
+        .march-user-setting ul {
+            min-width: 90px;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            border-radius: 2px;
+            box-shadow: 0 0 3px rgba(70, 70, 70, 0.3);
+            /*display: none;*/
+        }
+
+        .march-user-setting ul li {
+            list-style: none;
+            height: 30px;
+            text-align: center;
+        }
+
+        .march-user-setting ul li a {
+            color: #666;
+            font-size: 14px;
+            line-height: 30px;
+            text-decoration: none;
+        }
+
+        .march-user-setting ul li:hover {
+            background-color: #f2f2f5;
+        }
+
+        .march-user-setting ul li:hover a {
+            color: #000;
+        }
+    </style>
 </head>
 <body>
-
+<div class="container" id="march-content">
+    <div class="tab-content">
+        <div class="march-item">
+            <div class="march-user-info clearfix">
+                <div class="avatar"><a><img src="images/20.png" alt="avatar"/><span class="vip"></span></a></div>
+                <div class="card">
+                    <div class="card_loading">
+                        <img src="images/chat-loading.gif" alt="loading">
+                        <p>资料加载中...</p>
+                    </div>
+                </div>
+                <div class="name">
+                    <div>
+                        <a href="">司空琪</a><span class="mark mark-lv">Lv.6</span><span class="mark mark-vip">VIP 6</span>
+                    </div>
+                    <div><span class="time">2020-01-14 05:25</span></div>
+                </div>
+            </div>
+            <div class="march-user-setting">
+                <span class="glyphicon glyphicon-menu-down"></span>
+                <ul>
+                    <li><a href="">查看全文</a></li>
+                    <li><a href="">访问主页</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <p>疏星淡月，紫陌曲岸，持觞游赏，神移长川。一片彀纹，溶溶泄泄，忽而烟靡云敛。睹一丽人，缦立青水，云蒸雾霭，花衬善睐。荧荧兮若北辰之荣现，扰扰兮若紫玉之生烟。颜如舜华，迫闻素腰华琚摇;和颜静志，远望渌水呈雾绡。戏流光之夜蝶，采舞雪之琼花，流眷眷之眸光，润荣曜之笑靥。</p>
+                <p>偶得美人回顾，思之朝朝暮暮。采芝兰以明愫，寄琼琚以作妆。余咏永慕叹道长，彼应影独愿偕芳。才知世有解语，不过琪语溯光。</p>
+                <a href="images/qi01.jpg" data-fancybox="gallery" data-caption='<i class="fa fa-copyright"></i> lmlblog'><img src="images/qi01.jpg" alt="司空琪吧十一月壁纸"/></a>
+                <a href="images/qi02.jpg" data-fancybox="gallery" data-caption='<i class="fa fa-copyright"></i> lmlblog'><img src="images/qi02.jpg" alt="司空琪吧十一月壁纸"/></a>
+                <a href="images/qi03.jpg" data-fancybox="gallery" data-caption='<i class="fa fa-copyright"></i> lmlblog'><img src="images/qi03.jpg" alt="司空琪吧十一月壁纸"/></a>
+            </div>
+        </div>
+        <hr>
+        <div class="march-item">
+            <div class="march-user-info clearfix">
+                <div class="avatar"><a><img src="images/20.png" alt="avatar"/><span class="verify"></span></a></div>
+                <div class="card">
+                    <div class="card_loading">
+                        <img src="images/chat-loading.gif" alt="loading">
+                        <p>资料加载中...</p>
+                    </div>
+                </div>
+                <div class="name">
+                    <div>
+                        <a href="">司空琪</a><span class="mark mark-lv">Lv.6</span><span class="mark mark-vip">VIP 6</span>
+                    </div>
+                    <div><span class="time">2020-01-14 05:25</span></div>
+                </div>
+            </div>
+            <div class="march-user-setting">
+                <span class="glyphicon glyphicon-menu-down"></span>
+                <ul>
+                    <li><a href="">查看全文</a></li>
+                    <li><a href="">访问主页</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <p>疏星淡月，紫陌曲岸，持觞游赏，神移长川。一片彀纹，溶溶泄泄，忽而烟靡云敛。睹一丽人，缦立青水，云蒸雾霭，花衬善睐。荧荧兮若北辰之荣现，扰扰兮若紫玉之生烟。颜如舜华，迫闻素腰华琚摇;和颜静志，远望渌水呈雾绡。戏流光之夜蝶，采舞雪之琼花，流眷眷之眸光，润荣曜之笑靥。</p>
+                <p>偶得美人回顾，思之朝朝暮暮。采芝兰以明愫，寄琼琚以作妆。余咏永慕叹道长，彼应影独愿偕芳。才知世有解语，不过琪语溯光。</p>
+                <a href="images/qi01.jpg" data-fancybox="gallery" data-caption='<i class="fa fa-copyright"></i> lmlblog'><img src="images/qi01.jpg" alt="司空琪吧十一月壁纸"/></a>
+                <a href="images/qi02.jpg" data-fancybox="gallery" data-caption='<i class="fa fa-copyright"></i> lmlblog'><img src="images/qi02.jpg" alt="司空琪吧十一月壁纸"/></a>
+                <a href="images/qi03.jpg" data-fancybox="gallery" data-caption='<i class="fa fa-copyright"></i> lmlblog'><img src="images/qi03.jpg" alt="司空琪吧十一月壁纸"/></a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="application/javascript" src="js/jquery.min.js"></script>
 <script type="application/javascript" src="js/bootstrap.min.js"></script>
