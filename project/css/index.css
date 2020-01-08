@@ -156,6 +156,10 @@
     text-align: center;
 }
 
+.container .march-description h1 {
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
 /*分割线*/
 .container hr {
     margin-top: 30px;
@@ -345,13 +349,48 @@
     box-shadow: 0 4px 30px rgba(223, 45, 70, 0.6);
 }
 
-/*更多*/
-.march-hide {
-    display: none;
+/*信息*/
+.march-data {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
 }
 
+.march-data li {
+    float: left;
+    width: 25%;
+    text-align: center;
+    border-right: 1px solid orange;
+}
+
+.march-data li:last-child {
+    border-right: none;
+}
+
+.march-data li strong {
+    font-size: 20px;
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.march-data li span {
+    font-size: 12px;
+    color: #808080;
+    display: block;
+}
+
+/*隐藏更多*/
+.march-hide {
+    display: none;
+    /*todo*/
+    padding: 10px 10px 0;
+}
+
+/*更多*/
 .march-more {
-    margin: 15px 0 0;
+    margin: 10px 0 0;
     text-align: center;
     font-size: 16px;
     line-height: 24px;
@@ -363,62 +402,13 @@
     cursor: pointer;
 }
 
-/*信息*/
-.march-info {
-    list-style: none;
-    background-color: #fff;
-    padding: 0;
-}
-
-.march-info li {
-    float: left;
-    border: 1px solid black;
-    width: 25%;
-    text-align: center;
-    border-right: 1px solid #f1f1f1;
-    box-sizing: border-box;
-}
-
-.march-info li:last-child {
-    /*border-right: none;*/
-}
-
-.march-info li strong {
-    font-weight: normal;
-    line-height: 25px;
-    overflow: hidden;
-    font-size: 20px;
-    position: relative;
-}
-
-.march-info li i {
-    position: absolute;
-    top: -10px;
-    color: #ffffff;
-    background-color: #ff5722;
-    border-radius: 4px;
-    padding: 1px 5px;
-    margin-left: 2px;
-    right: -30px;
-    font-style: normal;
-    font-size: 12px;
-    line-height: 16px;
-    width: 20px;
-}
-
-.march-info li span {
-    font-size: 12px;
-    display: block;
-    color: #808080;
-}
-
 /*内容*/
 #march-content .tab-content div {
     min-height: 400px;
     background-color: green;
 }
 
-#html5 {
+#march-content .tab-content div {
     padding: 15px;
     background-color: #fff;
     clear: both;
@@ -430,19 +420,23 @@
     background-image: url(../images/058.png);
 }
 
-#html5 h2 {
+#march-content .tab-content div h2 {
     margin-bottom: 15px;
 }
 
-#html5 p {
+#march-content .tab-content div p {
     font-size: 15px;
     line-height: 30px;
     text-indent: 2em;
     word-break: break-all;
 }
 
-#html5 .march-no-indent {
+#march-content .tab-content div .march-no-indent {
     text-indent: 0;
+}
+
+#march-content .tab-content div video:focus {
+    outline: none;
 }
 
 .verify {
@@ -509,4 +503,14 @@
 
 .march-footer span {
     color: white;
+}
+
+/*滚动到顶部*/
+.march-top {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background: url(../images/top.png) no-repeat;
 }

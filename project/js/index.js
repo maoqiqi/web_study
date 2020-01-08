@@ -121,3 +121,97 @@ $(".march-more").click(function () {
     $(".march-hide").show();
     $(this).hide();
 });
+
+// 滚动到顶部
+function returnTop() {
+    let timer = setInterval(function () {
+        if ($(document).scrollTop() > 0) {
+            window.scrollBy(0, -100);
+        } else {
+            clearInterval(timer);
+        }
+    }, 10);
+}
+
+// 智能滚动
+function smartFloat(element, topDis, marginDis) {
+    let scrollTop = Math.round(element.offset().top) - topDis - marginDis;
+    let w = element.width();
+    let h = element.height();
+    console.log(w, h);
+    $(window).scroll(function () {
+        if (scrollTop - $(document).scrollTop() < 0) {
+            element.css({
+                width: w,
+                height: h,
+                position: "fixed",
+                top: topDis + marginDis
+            });
+        } else {
+            console.log("吨佛那个");
+            element.css({
+                position: "absolute",
+                top: 0
+            });
+        }
+    });
+}
+
+// 不给手机设置该功能
+if (window.screen.width > 768) {
+    smartFloat($(".march-smart-float"), 50, 20);
+}
+
+/*console.log(
+    "屏幕分辨率为：" + screen.width + "*" + screen.height +
+    "屏幕可用大小：" + screen.availWidth + "*" + screen.availHeight +
+    "网页可见区域宽：" + document.body.clientWidth +
+    "网页可见区域高：" + document.body.clientHeight +
+    "网页可见区域宽(包括边线的宽)：" + document.body.offsetWidth +
+    "网页可见区域高(包括边线的宽)：" + document.body.offsetHeight +
+    "网页正文全文宽：" + document.body.scrollWidth +
+    "网页正文全文高：" + document.body.scrollHeight +
+    "网页被卷去的高：" + document.body.scrollTop +
+    "网页被卷去的左：" + document.body.scrollLeft +
+    "网页正文部分上：" + window.screenTop +
+    "网页正文部分左：" + window.screenLeft +
+    "屏幕分辨率的高：" + window.screen.height +
+    "屏幕分辨率的宽：" + window.screen.width +
+    "屏幕可用工作区高度：" + window.screen.availHeight +
+    "屏幕可用工作区宽度：" + window.screen.availWidth
+);*/
+
+// 屏幕分辨率为：1920*1080
+// 屏幕可用大小：1920*937
+// 网页可见区域宽：1426
+// 网页可见区域高：3134
+// 网页可见区域宽(包括边线的宽)：1426
+// 网页可见区域高(包括边线的宽)：3134
+// 网页正文全文宽：1426
+// 网页正文全文高：3134
+// 网页被卷去的高：0
+// 网页被卷去的左：0
+// 网页正文部分上：23
+// 网页正文部分左：0
+// 屏幕分辨率的高：1080
+// 屏幕分辨率的宽：1920
+// 屏幕可用工作区高度：937
+// 屏幕可用工作区宽度：1920
+
+// 引入外部html文件
+function include(element, filePath) {
+    console.log("include");
+    let req = new XMLHttpRequest();
+    req.open("get", filePath);
+    req.send(null);
+    req.onload = function () {
+        if (req.status === 200) {
+            element.innerHTML = req.responseText;
+        }
+    };
+}
+
+include($("#html5")[0], "list-1.html");
+include($("#css3")[0], "list-2.html");
+include($("#java-script")[0], "list-3.html");
+include($("#java")[0], "list-4.html");
