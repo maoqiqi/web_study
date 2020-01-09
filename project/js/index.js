@@ -17,23 +17,23 @@ function removeClass(obj, cn) {
     obj.className = obj.className.replace(reg, "").trim();
 }
 
-// 音乐样式
+// // 音乐样式
 let playPauseElement = $(".march-play-pause");
-let music2Element = $(".march-music-2")[0];
-let musicContentElement = $(".march-music-content");
+let music2Element = playPauseElement[1];
+let musicContentElement = $(".navbar .nav .march-music-content");
 let musicUlElement = musicContentElement.children()[0];
 let audio = $("#march-audio")[0];
 let data;
 let position = 0;
 
-// 鼠标进
-musicContentElement.mouseover(function () {
-    addClass(music2Element, "march-music-2-hover");
-});
-// 鼠标出
-musicContentElement.mouseout(function () {
-    removeClass(music2Element, "march-music-2-hover");
-});
+// // 鼠标进
+// musicContentElement.mouseover(function () {
+//     addClass(music2Element, "march-music-2-hover");
+// });
+// // 鼠标出
+// musicContentElement.mouseout(function () {
+//     removeClass(music2Element, "march-music-2-hover");
+// });
 
 // 读取音乐列表
 const url = "data/music.json";
@@ -159,7 +159,7 @@ function smartFloat(element, topDis, marginDis) {
 
 // 不给手机设置该功能
 if (window.screen.width > 768) {
-    smartFloat($(".march-smart-float"), 50, 20);
+    smartFloat($(".march-smart-float"), 20, 20);
 }
 
 /*console.log(
@@ -211,7 +211,7 @@ function include(element, filePath) {
     };
 }
 
-include($("#html5")[0], "list-1.html");
-include($("#css3")[0], "list-2.html");
-include($("#java-script")[0], "list-3.html");
-include($("#java")[0], "list-4.html");
+// include($("#html5")[0], "item-1.html");
+// include($("#css3")[0], "list-2.html");
+// include($("#java-script")[0], "list-3.html");
+// include($("#java")[0], "list-4.html");
