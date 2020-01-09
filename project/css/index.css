@@ -179,157 +179,131 @@
     margin-top: 20px;
 }
 
-.march-content .tab-content div {
-    min-height: 400px;
+/*一条内容*/
+.march-item {
+    position: relative;
     padding: 15px;
-    background-color: green;
-    clear: both;
-    border-radius: 2px;
-    margin-bottom: 15px;
+}
+
+.march-item-bg-1 {
     background-repeat: no-repeat;
     background-position: right top;
     background-size: 800px;
     background-image: url(../images/058.png);
 }
 
-/*.march-content .tab-content div h2 {*/
-/*    margin-bottom: 15px;*/
-/*}*/
-
-/*.march-content .tab-content div p {*/
-/*    font-size: 15px;*/
-/*    line-height: 30px;*/
-/*    text-indent: 2em;*/
-/*    word-break: break-all;*/
-/*}*/
-
-/*.march-content .tab-content div .march-no-indent {*/
-/*    text-indent: 0;*/
-/*}*/
-
-/*.march-content .tab-content div video:focus {*/
-/*    outline: none;*/
-/*}*/
-
-.march-item {
-    position: relative;
-    background-color: deeppink;
-    padding: 15px;
-}
-
 /*用户信息*/
 .march-user-info {
     position: relative;
-    background-color: orange;
 }
 
 /*头像*/
-/*.march-user-info .avatar {*/
-/*    width: 60px;*/
-/*    height: 60px;*/
-/*    margin: 15px;*/
-/*    float: left;*/
-/*    background-color: red;*/
-/*}*/
+.march-user-info .avatar {
+    width: 60px;
+    height: 60px;
+    float: left;
+    cursor: pointer;
+}
 
-/*.march-user-info .avatar a {*/
-/*    display: block;*/
-/*    height: 100%;*/
-/*    position: relative;*/
-/*}*/
+.march-user-info .avatar a {
+    position: relative;
+    /*由子元素充满*/
+    display: block;
+}
 
-/*.march-user-info .avatar a img {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-    /*border-radius: 50%;*/
-    /*border: 1px solid #f3f3f3;*/
-    /*background-color: #e0dcdc*/
-/*}*/
+.march-user-info .avatar a img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid white;
+}
 
-/*.march-user-info .avatar a .vip {*/
-/*    width: 26px;*/
-/*    height: 12px;*/
-/*    background-image: url(../images/bbs_vip.png);*/
-/*    position: absolute;*/
-/*    bottom: 8px;*/
-/*    right: 1px;*/
-/*}*/
+.march-user-info .avatar a span.vip {
+    width: 26px;
+    height: 12px;
+    background-image: url(../images/bbs_vip.png);
+    position: absolute;
+    bottom: 8px;
+    right: 1px;
+}
 
-/*.march-user-info .avatar a .verify {*/
-/*    width: 16px;*/
-/*    height: 16px;*/
-/*    background-image: url(../images/lmlblog-verify-icon.png);*/
-/*    background-size: 16px;*/
+.march-user-info .avatar a span.verify {
+    width: 16px;
+    height: 16px;
+    background-image: url(../images/lmlblog-verify-icon.png);
+    background-size: 16px;
     /*background-position: 0 0;*/
-    /*background-position: 0 -20px;*/
-    /*position: absolute;*/
-    /*bottom: 2px;*/
-    /*right: 2px;*/
-/*}*/
+    background-position: 0 -20px;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+}
 
 /*展开个人信息*/
-/*.march-user-info .card {*/
-/*    width: 375px;*/
-/*    height: 240px;*/
-/*    background: white;*/
-/*    border-radius: 2px;*/
-/*    box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.2);*/
-/*    position: absolute;*/
-/*    left: 100px;*/
-/*    display: none;*/
-/*}*/
+.march-user-info .card {
+    width: 375px;
+    height: 240px;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 60px;
+    display: none;
+}
 
-/*.march-user-info .card .card_loading {*/
-/*    text-align: center;*/
-/*    margin-top: 80px;*/
-/*    cursor: pointer;*/
-/*}*/
-/**/
-/*.march-user-info .avatar:hover + .card {*/
-/*    display: block;*/
-/*}*/
+.march-user-info .card .card_loading {
+    text-align: center;
+    /*margin-top: 80px;*/
+    cursor: pointer;
+}
+
+.march-user-info .avatar:hover + .card /*, .march-user-info .card:hover*/
+{
+    display: block;
+    cursor: pointer;
+}
 
 /*名称*/
-/*.march-user-info .name {*/
-/*    display: inline-block;*/
-/*    padding: 20px 0;*/
-/*}*/
+.march-user-info .name {
+    /*内容填充宽高*/
+    display: inline-block;
+    margin-left: 8px;
+}
 
-/*.march-user-info .name div {*/
-/*    height: 30px;*/
-/*}*/
+.march-user-info .name div {
+    /*height: 30px;*/
+}
 
-/*.march-user-info .name div a {*/
-/*    color: #333;*/
-/*    font-weight: bold;*/
-/*    font-size: 16px;*/
-/*    text-decoration: none;*/
-/*    vertical-align: middle;*/
-/*    line-height: 30px;*/
-/*}*/
+.march-user-info .name div a {
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    vertical-align: middle;
+}
 
-/*.march-user-info .name div .mark {*/
-/*    margin-left: 8px;*/
-/*    padding: 2px 5px;*/
-/*    border-radius: 8px;*/
-/*    font-size: 12px;*/
-/*    color: white;*/
-/*    box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);*/
-/*}*/
+.mark {
+    margin-left: 8px;
+    padding: 2px 5px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: white;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+}
 
-/*.march-user-info .name div .mark-lv {*/
-/*    background-color: #FFB800;*/
-/*}*/
+.mark-lv {
+    background-color: orange;
+}
 
-/*.march-user-info .name div .mark-vip {*/
-/*    background-color: #FF5722;*/
-/*}*/
+.mark-vip {
+    background-color: red;
+}
 
-/*.march-user-info .name div .time {*/
-/*    font-size: 14px;*/
-/*    color: #808080;*/
-/*    cursor: pointer;*/
-/*}*/
+.time {
+    font-size: 12px;
+    color: rgba(0, 0, 0, .5);
+    cursor: pointer;
+}
 
 /*设置*/
 .march-user-setting {
@@ -337,65 +311,84 @@
     right: 0;
     top: 0;
     margin: 15px;
-
-    /*float: right;*/
-    /*margin-top: -7px;*/
-    /*color: #88898A;*/
-    /*margin-left: 20px;*/
-    /*font-size: 22px;*/
-    /*cursor: pointer;*/
-    /*position: relative;*/
-    /*margin-right: 15px;*/
+    float: right;
+    text-align: right;
 }
 
+.march-user-setting span {
+    color: rgba(0, 0, 0, .5);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/*展开设置*/
 .march-user-setting ul {
     min-width: 90px;
     padding: 0;
     margin: 0;
-    position: absolute;
-    right: 0;
     background-color: white;
     border-radius: 2px;
     box-shadow: 0 0 3px rgba(70, 70, 70, 0.3);
-    /*display: none;*/
+    display: none;
 }
 
 .march-user-setting ul li {
     list-style: none;
-    height: 30px;
     text-align: center;
 }
 
 .march-user-setting ul li a {
-    color: #666;
+    color: rgba(0, 0, 0, .6);
     font-size: 14px;
     line-height: 30px;
     text-decoration: none;
 }
 
 .march-user-setting ul li:hover {
-    background-color: #f2f2f5;
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .march-user-setting ul li:hover a {
-    color: #000;
+    color: black;
 }
 
-/*内容*/
+/*文本内容*/
+.march-text {
+    margin-top: 10px;
+    color: rgba(0, 0, 0, .7);
+}
+
+.march-text p {
+    font-size: 15px;
+    line-height: 30px;
+    text-indent: 2em;
+    word-break: break-all;
+}
+
+.march-text p.march-no-indent {
+    text-indent: 0;
+}
+
+/*去除视频获取焦点时的边框*/
+.march-video:focus {
+    outline: none;
+}
+
+/*图片内容*/
 .march-images {
-    max-height: 300px;
-    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
 }
 
 .march-images a {
-    float: left;
-    width: 33.33%;
+    max-width: 32%;
+    max-height: 150px;
+    overflow: hidden;
 }
 
 .march-images a img {
     width: 100%;
     cursor: url(../images/open_new.cur), auto;
-    border: 1px solid #f1f1f1;
 }
 
 /*=================个人信息=================*/
@@ -620,39 +613,6 @@
 .march-more:hover {
     color: #000;
     cursor: pointer;
-}
-
-.verify {
-    display: block;
-    background-color: red;
-}
-
-.verify img {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    border: 1px solid #f2f2f5;
-    background-color: #e0dcdc
-}
-
-.verify a {
-    display: inline-block;
-    height: 100%;
-}
-
-.verify a {
-    position: relative;
-}
-
-.verify i {
-    width: 16px;
-    height: 16px;
-    background-image: url(../images/lmlblog-verify-icon.png);
-    background-size: 16px;
-    /*background-position: 0px -20px;*/
-    position: absolute;
-    bottom: 0;
-    right: 0;
 }
 
 /*自定义按钮*/
