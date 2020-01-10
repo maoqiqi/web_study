@@ -185,35 +185,26 @@
     padding: 15px;
     background-color: rgba(0, 0, 0, .1);
     border-radius: 2px;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 800px;
     position: relative;
 }
 
 .march-item-bg-1 {
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: 800px;
-    background-image: url(../images/058.png);
+    background-image: url(../images/bg-item-1.png);
 }
 
 .march-item-bg-2 {
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: 800px;
-    background-image: url(../images/044.png);
+    background-image: url(../images/bg-item-2.png);
 }
 
 .march-item-bg-3 {
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: 800px;
-    background-image: url(../images/153.png);
+    background-image: url(../images/bg-item-3.png);
 }
 
 .march-item-bg-4 {
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-size: 800px;
-    background-image: url(../images/03.png);
+    background-image: url(../images/bg-item-4.png);
 }
 
 /*用户信息*/
@@ -405,7 +396,11 @@
     max-width: 100%;
 }
 
-/*去除视频获取焦点时的边框*/
+/*视频*/
+.march-video {
+    max-width: 100%;
+}
+
 .march-video:focus {
     outline: none;
 }

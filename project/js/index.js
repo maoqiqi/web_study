@@ -212,6 +212,6 @@ function include(element, filePath) {
 }
 
 include($("#html5")[0], "list-1.html");
-// include($("#css3")[0], "list-2.html");
-// include($("#java-script")[0], "list-3.html");
-// include($("#java")[0], "list-4.html");
+include($("#css3")[0], "list-2.html");
+include($("#java-script")[0], "list-3.html");
+include($("#java")[0], "list-4.html");
