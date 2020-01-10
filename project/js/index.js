@@ -138,7 +138,7 @@ function smartFloat(element, topDis, marginDis) {
     let scrollTop = Math.round(element.offset().top) - topDis - marginDis;
     let w = element.width();
     let h = element.height();
-    console.log(w, h);
+    console.log("w " + w + "h " + h);
     $(window).scroll(function () {
         if (scrollTop - $(document).scrollTop() < 0) {
             element.css({
@@ -148,8 +148,9 @@ function smartFloat(element, topDis, marginDis) {
                 top: topDis + marginDis
             });
         } else {
-            console.log("吨佛那个");
             element.css({
+                width: w,
+                height: h,
                 position: "absolute",
                 top: 0
             });
@@ -159,7 +160,7 @@ function smartFloat(element, topDis, marginDis) {
 
 // 不给手机设置该功能
 if (window.screen.width > 768) {
-    smartFloat($(".march-smart-float"), 20, 20);
+    // smartFloat($(".march-smart-float"), 50, 30);
 }
 
 /*console.log(
