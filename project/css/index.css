@@ -227,6 +227,7 @@
     height: 60px;
     float: left;
     cursor: pointer;
+    margin-right: 8px;
 }
 
 .march-user-info .avatar a {
@@ -256,11 +257,18 @@
     height: 16px;
     background-image: url(../images/lmlblog-verify-icon.png);
     background-size: 16px;
-    /*background-position: 0 0;*/
-    background-position: 0 -20px;
+    background-position: 0 0;
     position: absolute;
     bottom: 2px;
     right: 2px;
+}
+
+.march-user-info .avatar a span.icon-1 {
+    background-position: 0 0;
+}
+
+.march-user-info .avatar a span.icon-2 {
+    background-position: 0 -20px;
 }
 
 /*展开个人信息*/
@@ -291,7 +299,6 @@
 .march-user-info .name {
     /*内容填充宽高*/
     display: inline-block;
-    margin-left: 8px;
 }
 
 .march-user-info .name div {
@@ -389,8 +396,13 @@
     word-break: break-all;
 }
 
-.march-text p.march-no-indent {
+.march-text .march-text-center {
     text-indent: 0;
+    text-align: center;
+}
+
+.march-text img {
+    max-width: 100%;
 }
 
 /*去除视频获取焦点时的边框*/
