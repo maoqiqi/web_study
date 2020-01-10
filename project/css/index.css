@@ -237,7 +237,7 @@
 .march-user-info .avatar a span.vip {
     width: 26px;
     height: 12px;
-    background-image: url(../images/bbs_vip.png);
+    background-image: url(../images/icon-vip.png);
     position: absolute;
     bottom: 8px;
     right: 1px;
@@ -246,7 +246,7 @@
 .march-user-info .avatar a span.verify {
     width: 16px;
     height: 16px;
-    background-image: url(../images/lmlblog-verify-icon.png);
+    background-image: url(../images/icon-verify.png);
     background-size: 16px;
     background-position: 0 0;
     position: absolute;
