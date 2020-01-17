@@ -1,39 +1,18 @@
-// 向一个元素中添加指定的class属性值
-function addClass(obj, cn) {
-    if (!hasClass(obj, cn)) {
-        obj.className = (obj.className + " " + cn).trim();
-    }
-}
-
-// 判断一个元素中是否含有指定的class属性值
-function hasClass(obj, cn) {
-    const reg = new RegExp("\\b" + cn + "\\b");
-    return reg.test(obj.className);
-}
-
-// 删除一个元素中的指定的class属性
-function removeClass(obj, cn) {
-    const reg = new RegExp("\\b" + cn + "\\b");
-    obj.className = obj.className.replace(reg, "").trim();
-}
-
-// // 音乐样式
-let playPauseElement = $(".march-play-pause");
-let music2Element = playPauseElement[1];
-let musicContentElement = $(".navbar .nav .march-music-content");
-let musicUlElement = musicContentElement.children()[0];
+// 音乐样式
+let $playPause = $(".march-play-pause");
+let $span = $playPause.children("span");
+let $musicContent = $('a.march-play-pause').next('div');
+let $musicUl = $musicContent.children('ul');
 let audio = $("#march-audio")[0];
 let data;
 let position = 0;
 
-// // 鼠标进
-// musicContentElement.mouseover(function () {
-//     addClass(music2Element, "march-music-2-hover");
-// });
-// // 鼠标出
-// musicContentElement.mouseout(function () {
-//     removeClass(music2Element, "march-music-2-hover");
-// });
+// 音乐列表悬浮时按钮样式
+$musicContent.hover(function () {
+    $('a.march-play-pause').addClass("march-music-content-hover");
+}, function () {
+    $('a.march-play-pause').removeClass("march-music-content-hover")
+});
 
 // 读取音乐列表
 const url = "data/music.json";
@@ -45,7 +24,7 @@ request.onload = function () {
         data = JSON.parse(request.responseText);
         audio.src = data[position]["link"];
         createMusicList();
-        playPauseElement.click(setPlayPause);
+        $playPause.click(setPlayPause);
     }
 };
 
@@ -65,18 +44,18 @@ function createMusicList() {
         liElement.innerHTML = data[i]["name"] + " - " + data[i]["author"];
         liElement.appendChild(aElement);
 
-        if (i === position) addClass(liElement, "selected");
+        if (i === position) $(liElement).addClass("selected");
         liElement.index = i;
         liElement.onclick = switchMusic;
-        musicUlElement.appendChild(liElement);
+        $musicUl.append(liElement);
     }
 }
 
 // 切换音乐
 function switchMusic() {
-    removeClass(musicUlElement.children[position], "selected");
+    $($musicUl.children("li")[position]).removeClass("selected");
     position = this.index;
-    addClass(musicUlElement.children[position], "selected");
+    $($musicUl.children("li")[position]).addClass("selected");
     audio.src = data[position]["link"];
     setPlayPause();
 }
@@ -95,24 +74,25 @@ function setPlayPause() {
 // 更新按钮
 function updatePlayPause(on) {
     if (on) {
-        playPauseElement[0].children[0].className = "iconfont icon-music-off";
-        playPauseElement[1].children[0].className = "iconfont icon-play";
+        $span[0].className = "iconfont icon-music-off";
+        $span[1].className = "iconfont icon-play";
     } else {
-        playPauseElement[0].children[0].className = "iconfont icon-music";
-        playPauseElement[1].children[0].className = "iconfont icon-pause";
+        $span[0].className = "iconfont icon-music";
+        $span[1].className = "iconfont icon-pause";
     }
 }
 
 // 菜单
 $("#dropdown-menu > li > a").click(function (e) {
     let href = $(this).attr("href");
+    // 显示该选项卡
     $("#tab-list > li > a[href='" + href + "']").tab("show");
-    $(document).scrollTop($("#march-content").offset().top);
+    // 滚动
+    $("html,body").scrollTop($(".march-content").offset().top - 50);
     // 关闭菜单
-    let navbarBtn = $(".navbar .navbar-header button:first-child")[0];
-    let navbarMenu = $(".navbar .collapse")[0];
-    navbarBtn.className = "navbar-toggle collapsed";
-    navbarMenu.className = "collapse navbar-collapse";
+    $(".navbar .navbar-header button:first-child").className = "navbar-toggle collapsed";
+    $(".navbar div.collapse").className = "collapse navbar-collapse";
+    // 取消默认行为
     e.preventDefault();
 });
 

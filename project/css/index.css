@@ -90,14 +90,14 @@
     display: none;
 }
 
-.navbar-inverse .nav > li > .march-play-pause:hover, .navbar-inverse .nav > li > .march-music-2-hover {
+.navbar-inverse .nav > li > .march-play-pause:hover, .navbar-inverse .nav > li > .march-music-content-hover {
     background-color: rgba(63, 65, 67, 0.7);
     border: 1px solid #3F4143;
     /*border-bottom: 1px solid #dddddd;*/
     cursor: pointer;
 }
 
-.navbar-inverse .nav > li > .march-play-pause:hover span, .navbar-inverse .nav > li > .march-music-2-hover span {
+.navbar-inverse .nav > li > .march-play-pause:hover span, .navbar-inverse .nav > li > .march-music-content-hover span {
     color: #c3c3c3;
 }
 
