@@ -23,15 +23,22 @@
   * [圆括号问题](#圆括号问题)
   * [用途](#用途)
 * [字符串的新增方法](#字符串的新增方法)
-  * [String.fromCodePoint()](#stringfromcodepoint)
-  * [String.raw()](#stringraw)
-  * [codePointAt()](#codepointat)
-  * [normalize()](#normalize)
   * [includes(), startsWith(), endsWith()](#includes-startswith-endswith)
   * [repeat()](#repeat)
   * [padStart()，padEnd()](#padstartpadend)
   * [trimStart()，trimEnd()](#trimstarttrimend)
   * [matchAll()](#matchall)
+* [正则的扩展](#正则的扩展)
+* [数值的扩展](#数值的扩展)
+  * [二进制和八进制表示法](#)
+  * [Number.isFinite(), Number.isNaN()](#)
+  * [Number.parseInt(), Number.parseFloat()](#)
+  * [Number.isInteger()](#)
+  * [Number.EPSILON](#)
+  * [安全整数和 Number.isSafeInteger()](#)
+  * [Math 对象的扩展](#)
+  * [指数运算符](#)
+  * [BigInt 数据类型](#)
 
 
 ## let
@@ -946,12 +953,91 @@ add([1, 2]) // 3
 
 ## 字符串的新增方法
 
-### String.fromCodePoint()
-### String.raw()
-### codePointAt()
-### normalize()
 ### includes(), startsWith(), endsWith()
+
+传统上，JavaScript 只有indexOf方法，可以用来确定一个字符串是否包含在另一个字符串中。ES6 又提供了三种新方法。
+
+* includes()：返回布尔值，表示是否找到了参数字符串。
+* startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。
+* endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
+
+```
+let s = 'Hello world!'
+console.log(s.startsWith('world', 6)) // true
+console.log(s.endsWith('Hello', 5)) // true
+console.log(s.includes('world', 6))// false
+// 使用第二个参数n时，endsWith的行为与其他两个方法有所不同。
+// 它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。
+```
+
 ### repeat()
+
+repeat方法返回一个新字符串，表示将原字符串重复n次。
+
+```
+console.log('x'.repeat(3)) // "xxx"
+console.log('na'.repeat(0)) // ""
+console.log('na'.repeat(2.9)) // "nana"
+console.log('na'.repeat(-0.9)) // ""
+console.log('na'.repeat(NaN)) // ""
+```
+
 ### padStart()，padEnd()
+
+ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。padStart()用于头部补全，padEnd()用于尾部补全。
+
+```
+console.log('x'.padStart(5, '1')) // '1111x'
+console.log('x'.padStart(4, '1')) // '111x'
+console.log('x'.padEnd(5, '1')) // 'x1111'
+console.log('x'.padEnd(4, '1')) // 'x111'
+// 如果原字符串的长度，等于或大于最大长度，则字符串补全不生效，返回原字符串。
+console.log('xxx'.padStart(2, 'ab'))  // 'xxx'
+console.log('xxx'.padEnd(2, 'ab'))  // 'xxx'
+// 如果用来补全的字符串与原字符串，两者的长度之和超过了最大长度，则会截去超出位数的补全字符串。
+console.log('abc'.padStart(10, '0123456789')) // '0123456abc'
+// 如果省略第二个参数，默认使用空格补全长度。
+console.log('x'.padStart(4)) // '   x'
+console.log('x'.padEnd(4))  // 'x   '
+```
+
 ### trimStart()，trimEnd()
+
+ES2019 对字符串实例新增了trimStart()和trimEnd()这两个方法。
+它们的行为与trim()一致，trimStart()消除字符串头部的空格，trimEnd()消除尾部的空格。
+它们返回的都是新字符串，不会修改原始字符串。
+
+```
+const s = '  abc  '
+console.log(s.trim())// "abc"
+console.log(s.trimStart()) // "abc  "
+console.log(s.trimEnd()) // "  abc"
+```
+
 ### matchAll()
+
+matchAll()方法返回一个正则表达式在当前字符串的所有匹配
+
+
+## 正则的扩展
+
+
+## 数值的扩展
+
+### 二进制和八进制表示法
+
+### Number.isFinite(), Number.isNaN()
+
+### Number.parseInt(), Number.parseFloat()
+
+### Number.isInteger()
+
+### Number.EPSILON
+
+### 安全整数和Number.isSafeInteger()
+
+### Math对象的扩展
+
+### 指数运算符
+
+### BigInt数据类型
