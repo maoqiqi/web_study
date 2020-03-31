@@ -22,6 +22,16 @@
   * [函数参数的解构赋值](#函数参数的解构赋值)
   * [圆括号问题](#圆括号问题)
   * [用途](#用途)
+* [字符串的新增方法](#字符串的新增方法)
+  * [String.fromCodePoint()](#)
+  * [String.raw()](#)
+  * [codePointAt()](#)
+  * [normalize()](#)
+  * [includes(), startsWith(), endsWith()](#)
+  * [repeat()](#)
+  * [padStart()，padEnd()](#)
+  * [trimStart()，trimEnd()](#)
+  * [matchAll()](#matchAll())
 
 
 ## let
@@ -934,4 +944,14 @@ add([1, 2]) // 3
   ```
 
 
-## 
+## 字符串的新增方法
+
+### String.fromCodePoint()
+### String.raw()
+### codePointAt()
+### normalize()
+### includes(), startsWith(), endsWith()
+### repeat()
+### padStart()，padEnd()
+### trimStart()，trimEnd()
+### matchAll()
